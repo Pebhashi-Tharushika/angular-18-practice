@@ -28,4 +28,15 @@ export class AppComponent {
   isActive: boolean = false;
 
   name: string = "Amal";
+
+  buttonClick() {
+    console.log("clicked");
+  }
+
+  downKey($event:KeyboardEvent) {
+    console.log("key down");
+    console.log($event);
+    console.log($event.key); // e | Enter | 2
+    console.log($event.code); // KeyE | Enter | Digit2
+  }
 }
