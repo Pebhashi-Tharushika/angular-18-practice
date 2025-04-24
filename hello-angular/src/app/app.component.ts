@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, NavbarComponent], // import Login component and Navbar component
+  imports: [RouterOutlet, LoginComponent, NavbarComponent, FormsModule], // import FormsModule to use [(ngModel)]
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -30,6 +31,8 @@ export class AppComponent {
   name: string = "Amal";
 
   username: string = "username";
+
+  country: string = '';
 
   buttonClick() {
     console.log("clicked");

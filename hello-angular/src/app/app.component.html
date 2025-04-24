@@ -81,5 +81,11 @@
 <!-- Template variable -->
 
 <input type="text" #inputRef placeholder="Enter your username"> <!-- Declare a template variable 'inputRef' -->
-<button (click)="displayUsername(inputRef)">Show Name</button> <!-- pass entire input element to method "displayName()" -->
+<button (click)="displayUsername(inputRef)">Show Username</button> <!-- pass entire input element to method "displayName()" -->
 <p>{{username}}</p>
+
+
+
+<!-- two-way data binding -->
+<input type="text" [(ngModel)]="country">
+<h2>You entered country is {{country}}</h2>
