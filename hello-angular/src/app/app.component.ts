@@ -20,4 +20,8 @@ export class AppComponent {
   areaLabel: string = "Something is open";
 
   columnSpan:number = 2;
+
+  fontColor: string = "Red";
+
+  backgroundColor: string = "yellow";
 }
