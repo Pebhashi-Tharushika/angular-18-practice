@@ -6,9 +6,17 @@
 
 
 <!-- Text/String Interpolation Binding -->
-
 <h2>{{title}}</h2>
 <h2>{{1+9}}</h2> <!-- 10 is text -->
 
+
 <!-- Property Binding -->
 <img [src]="imgUrl">
+
+<br>
+<!-- Text interpolation vs property -->
+<button [disabled]="isDisabled">Next</button><br><br> <!-- correct - boolean -->
+<button disabled="{{isDisabled}}">Previous</button><br><br> <!-- incorrect - string -->
+
+<img [src]="imgUrl"> <!-- correct - property binding -->
+<img src="{{imgUrl}}"> <!-- correct - text interpolation binding -->
