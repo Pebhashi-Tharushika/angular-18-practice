@@ -70,3 +70,8 @@
 <button (click)="buttonClick()">Submit</button>
 
 <input type="text" (keydown)="downKey($event)">
+
+<input type="text" (keydown)="updateName($event)"> <!-- using key modifiers of $event argument -->
+
+<input type="text" (keydown.enter)="pressEnter()"> <!-- using period character (.) -->
+

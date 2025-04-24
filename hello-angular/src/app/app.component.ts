@@ -15,11 +15,11 @@ export class AppComponent {
 
   imgUrl: string = "https://logowik.com/content/uploads/images/angular-a-letter-new-20243216.logowik.com.webp";
 
-  isDisabled:boolean = false;
+  isDisabled: boolean = false;
 
   areaLabel: string = "Something is open";
 
-  columnSpan:number = 2;
+  columnSpan: number = 2;
 
   fontColor: string = "Red";
 
@@ -33,10 +33,21 @@ export class AppComponent {
     console.log("clicked");
   }
 
-  downKey($event:KeyboardEvent) {
+  // access event arguments
+  downKey($event: KeyboardEvent) {
     console.log("key down");
     console.log($event);
     console.log($event.key); // e | Enter | 2
     console.log($event.code); // KeyE | Enter | Digit2
+  }
+
+  updateName(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      console.log("User press enter key in the text input field.");
+    }
+  }
+
+  pressEnter() {
+    console.log("User press enter key in the text input field.");
   }
 }
