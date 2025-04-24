@@ -16,4 +16,8 @@ export class AppComponent {
   imgUrl: string = "https://logowik.com/content/uploads/images/angular-a-letter-new-20243216.logowik.com.webp";
 
   isDisabled:boolean = false;
+
+  areaLabel: string = "Something is open";
+
+  columnSpan:number = 2;
 }
