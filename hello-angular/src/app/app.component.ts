@@ -24,4 +24,8 @@ export class AppComponent {
   fontColor: string = "Red";
 
   backgroundColor: string = "yellow";
+
+  isActive: boolean = false;
+
+  name: string = "Amal";
 }

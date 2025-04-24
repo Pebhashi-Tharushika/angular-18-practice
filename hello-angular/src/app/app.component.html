@@ -56,3 +56,10 @@
 <!-- Style Binding -->
 <h1 [style.color]="fontColor" [style.backgroundColor]="backgroundColor">Hello Angular</h1>
 
+
+
+<!-- Class Binding -->
+<h3 [class.active]="isActive">Data Binding</h3>
+<h4 [class.nonActive]="!isActive">Class Binding</h4>
+
+<h3 [class.active]="name=='Amal'" [class.nonActive]="name!='Amal'">He is Amal?</h3>
