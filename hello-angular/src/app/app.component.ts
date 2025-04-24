@@ -12,4 +12,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 export class AppComponent {
   title = 'hello-angular';
+
+  imgUrl: string = "https://logowik.com/content/uploads/images/angular-a-letter-new-20243216.logowik.com.webp";
 }
