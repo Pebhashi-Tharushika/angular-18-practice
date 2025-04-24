@@ -29,6 +29,8 @@ export class AppComponent {
 
   name: string = "Amal";
 
+  username: string = "username";
+
   buttonClick() {
     console.log("clicked");
   }
@@ -49,5 +51,9 @@ export class AppComponent {
 
   pressEnter() {
     console.log("User press enter key in the text input field.");
+  }
+
+  displayUsername(inputElement: HTMLInputElement) {
+    this.username = inputElement.value ? inputElement.value : "username";
   }
 }

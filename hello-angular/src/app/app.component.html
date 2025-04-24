@@ -75,3 +75,11 @@
 
 <input type="text" (keydown.enter)="pressEnter()"> <!-- using period character (.) -->
 
+
+
+<br><br>
+<!-- Template variable -->
+
+<input type="text" #inputRef placeholder="Enter your username"> <!-- Declare a template variable 'inputRef' -->
+<button (click)="displayUsername(inputRef)">Show Name</button> <!-- pass entire input element to method "displayName()" -->
+<p>{{username}}</p>
