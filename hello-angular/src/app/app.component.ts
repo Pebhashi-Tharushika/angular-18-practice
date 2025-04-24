@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, NavbarComponent, FormsModule], // import FormsModule to use [(ngModel)]
+  imports: [LoginComponent, NavbarComponent, FormsModule], // import FormsModule to use [(ngModel)]
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
