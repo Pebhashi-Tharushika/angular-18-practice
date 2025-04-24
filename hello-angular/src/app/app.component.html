@@ -28,20 +28,25 @@
 <button [attr.area-label]="areaLabel">Click Me</button>
 
 <table>
-  <tr>
-      <th>Name</th>
-      <th>Age</th>
-  </tr>
-  <tr>
-      <td>Amal</td>
-      <td>23</td>
-  </tr>
-  <tr>
-      <td>Kamal Namila</td>
-      <td>27</td>
-  </tr>
-  <tr>
-      <td [attr.colSpan]="columnSpan">Sum of the Age of all people:50</td>
-  </tr>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Amal</td>
+        <td>23</td>
+    </tr>
+    <tr>
+        <td>Kamal Namila</td>
+        <td>27</td>
+    </tr>
+    <tr>
+        <!-- attribute binding -->
+        <td [attr.colSpan]="columnSpan">Sum of the Age of all people:50</td>
+    </tr>
+    <tr>
+        <!-- property binding -->
+        <td [colSpan]="columnSpan">Sum of the Age of all people:50</td>
+    </tr>
 
 </table>
