@@ -257,8 +257,18 @@ var sum = sumStr;
 console.log(typeof sum); // string
 // console.log(sum.length)  // error: Property 'length' does not exist on type 'number'
 console.log('average = ' + sum / 4); //average = 58.5
-console.log(sum + 10); // 5210
-console.log(sumStr + 10); // 5210
+console.log(sum + 10); // 23410
+console.log(sumStr + 10); // 23410
 var jsonString = '{"name": "Chamod", "age": 24}';
 var Patient1 = JSON.parse(jsonString);
 var Patient2 = JSON.parse(jsonString); //without type assertion
+/*------------------------------Union and Intersection-----------------------*/
+/*------------- union (|) ------------*/
+var index;
+index = "hello";
+index = 42;
+var vd = {
+    name: "Sanu",
+    vehicleId: 123
+};
+console.log(vd);

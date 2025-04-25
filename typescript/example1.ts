@@ -508,3 +508,26 @@ let Patient2: User = JSON.parse(jsonString);//without type assertion
 
 
 
+
+/*------------------------------Union and Intersection-----------------------*/
+
+/*------------- union (|) ------------*/
+let index: string | number;
+
+index = "hello";
+index = 42;
+// index = true; // Error - Type 'boolean' is not assignable to type 'string | number'.
+
+
+/*----------- Intersection (&) ----------*/
+type Driver = { name: string };
+type Vehicle = { vehicleId: number };
+
+type VehicleDriver = Driver & Vehicle;
+
+const vd: VehicleDriver = {
+    name: "Sanu",
+    vehicleId: 123
+};
+
+console.log(vd);
