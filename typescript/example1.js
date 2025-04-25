@@ -144,3 +144,13 @@ console.log(typeof id1); // string
 var id2 = id;
 console.log(typeof id2); // string
 console.log(id2.length);
+/*----------------------- undefined -----------------------*/
+var x;
+console.log(x); // undefined
+console.log(typeof x); // undefined
+var y = 22;
+console.log(y); // 22
+console.log(typeof y); // number
+var z = undefined;
+console.log(z); // undefined
+console.log(typeof z); // undefined

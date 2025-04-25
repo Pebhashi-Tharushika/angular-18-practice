@@ -295,3 +295,20 @@ console.log(typeof id1); // string
 let id2 = id as string;
 console.log(typeof id2); // string
 console.log(id2.length)
+
+
+
+/*----------------------- undefined -----------------------*/
+
+let x;
+console.log(x); // undefined
+console.log(typeof x); // undefined
+
+let y: number = 22;
+console.log(y); // 22
+console.log(typeof y); // number
+
+let z: undefined = undefined;
+console.log(z); // undefined
+console.log(typeof z); // undefined
+
