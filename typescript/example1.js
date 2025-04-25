@@ -1,15 +1,15 @@
 var message2 = "Hi, Kamal";
 console.log(message2);
-/* how to define variable */
+/*----------------------- how to define variable -------------------------*/
 var grade; //declaration
 grade = 6; //initialization
 var count = 17;
-/* data types */
+/*-------------------------- data types ----------------------------*/
 var country = "Japan";
 var age = 20;
 var weight = 63.25;
 var isMarried = false;
-/* let(new keyword) , var(old keyword) , const */
+/*----------------- let(new keyword) , var(old keyword) , const -----------------*/
 if (true) {
     var m = "Amal";
     var n = 6;
@@ -24,16 +24,16 @@ function printUserDetails() {
 // console.log(t); // Cannot find name 't'
 var pi = 3.14;
 // pi = 3; // error - Cannot assign to 'pi' because it is a constant
-/* array Vs Array */
+/*---------------------- array Vs Array --------------------*/
 var marks = [12, 34, 45]; // array
 console.log(marks);
 var marksArray = [12, 65, 89]; // Array interface
 console.log(marksArray);
-/* tuple */
+/*---------------------------- tuple --------------------------*/
 var tuple1; // Declare a tuple type
 tuple1 = ["Amal", 37, true]; // Assign values in correct order
 console.log(tuple1);
-/* function */
+/*-------------------------- function -------------------------*/
 function greet(name) {
     return "hello ".concat(name, "!");
 }
@@ -54,7 +54,7 @@ var emp = {
 console.log(emp.name); // Sanu
 console.log(emp.age); // 25
 console.log(emp.department); // Engineering
-/* object vs Object in ts */
+/*----------------------------- object vs Object in ts -------------------------------*/
 /*----- object (represent primitives that are boxed and non-primitive types (objects)) -----*/
 var obj = { name: "Alice", age: 30 }; // Valid
 obj = [1, 2, 3]; // Valid
@@ -78,7 +78,7 @@ function showPersonelInfo(name, age) {
 showPersonelInfo("Amal");
 //Amal
 //undefined
-/* enum */
+/*-------------------------------- enum ------------------------------*/
 var Direction;
 (function (Direction) {
     Direction[Direction["North"] = 0] = "North";
@@ -97,3 +97,29 @@ var colors;
     colors[colors["WHITE"] = 400] = "WHITE";
 })(colors || (colors = {}));
 console.log(colors.BLUE); // 100
+var myName = "Amal"; // same as:- let name: string
+var owner1 = {
+    name: "Sanu",
+    age: 28,
+};
+var greetUser = function (name) { return "Hello ".concat(name, "!"); };
+var greetCustomer = function (customerName) { return "Welcome ".concat(customerName); };
+console.log(greetUser("Amal"));
+console.log(greetCustomer('Kamal'));
+var displayResult = function () { console.log('display something'); };
+var displayAverageMarks = function () {
+    var avg = (45 + 59 + 75) / 3;
+    console.log("average marks: " + Math.round(avg * 100) / 100);
+};
+displayResult();
+displayAverageMarks();
+var coordinate = [14, 27];
+console.log(coordinate);
+var currentStatus = "loading";
+currentStatus = "error";
+var item1 = {
+    name: "Fresh Milk",
+    code: 34,
+    isExpired: false
+};
+console.log(item1); //{ name: 'Amal', age: 34, jobTitle: 'Teacher' }

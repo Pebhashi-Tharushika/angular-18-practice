@@ -1,7 +1,7 @@
 let message2 = "Hi, Kamal";
 console.log(message2);
 
-/* how to define variable */
+/*----------------------- how to define variable -------------------------*/
 
 let grade: number; //declaration
 grade = 6; //initialization
@@ -9,14 +9,14 @@ grade = 6; //initialization
 let count: number = 17;
 
 
-/* data types */
+/*-------------------------- data types ----------------------------*/
 let country: string = "Japan";
 let age: number = 20;
 let weight: number = 63.25;
 let isMarried: boolean = false;
 
 
-/* let(new keyword) , var(old keyword) , const */
+/*----------------- let(new keyword) , var(old keyword) , const -----------------*/
 
 if (true) {
     let m: string = "Amal";
@@ -37,7 +37,7 @@ const pi = 3.14;
 
 
 
-/* array Vs Array */
+/*---------------------- array Vs Array --------------------*/
 
 let marks: number[] = [12, 34, 45]; // array
 console.log(marks)
@@ -47,13 +47,13 @@ console.log(marksArray)
 
 
 
-/* tuple */
+/*---------------------------- tuple --------------------------*/
 let tuple1: [string, number, boolean];  // Declare a tuple type
 tuple1 = ["Amal", 37, true];            // Assign values in correct order
 console.log(tuple1);
 
 
-/* function */
+/*-------------------------- function -------------------------*/
 function greet(name: string) {
     return `hello ${name}!`;
 }
@@ -62,7 +62,7 @@ console.log(greet('Amal'));
 
 
 
-/* js Object vs ts interface */
+/*--------------------------- js Object vs ts interface ----------------------*/
 
 interface User {
     name: string,
@@ -102,7 +102,9 @@ console.log(emp.name);       // Sanu
 console.log(emp.age);       // 25
 console.log(emp.department); // Engineering
 
-/* object vs Object in ts */
+
+
+/*----------------------------- object vs Object in ts -------------------------------*/
 
 /*----- object (represent primitives that are boxed and non-primitive types (objects)) -----*/
 let obj: object = { name: "Alice", age: 30 };  // Valid
@@ -116,7 +118,7 @@ obj2 = "hello";  // Valid, because String("hello") is an object
 
 
 
-/* ? - optional */
+/*----------------------------- ? - optional ------------------------------*/
 
 /* ? with interface properties */
 interface Student {
@@ -136,7 +138,7 @@ console.log(displayStudentInfo(student)); // Name: Saman, Age: undefined
 
 
 /* ? with function parameers */
-function showPersonelInfo(name:string, age?:number){
+function showPersonelInfo(name: string, age?: number) {
     console.log(name);
     console.log(age);
 }
@@ -147,22 +149,115 @@ showPersonelInfo("Amal");
 
 
 
-/* enum */
+/*-------------------------------- enum ------------------------------*/
 enum Direction {
     North,
     East,
     South,
     West
-  }
-  let dir: Direction = Direction.North;
-  console.log(dir); // 0
+}
+let dir: Direction = Direction.North;
+console.log(dir); // 0
 
 
-  /* enum  with custom values */
-  enum colors {
+/* enum  with custom values */
+enum colors {
     RED = 100,
     GREEN = 200,
     BLUE = 300,
     WHITE = 400
-  }
-  console.log(colors.BLUE); // 100
+}
+console.log(colors.BLUE); // 100
+
+
+
+/*---------------------------- alias ----------------------------*/
+type MyString = string;
+
+let myName: MyString = "Amal"; // same as:- let name: string
+
+
+/* object type alias */
+
+type Owner = {
+    name: string,
+    age: number
+};
+
+const owner1: Owner = {
+    name: "Sanu",
+    age: 28,
+};
+
+
+
+/* function type alias */
+
+type greet = (name: string) => string;
+
+let greetUser: greet = (name: string) => `Hello ${name}!`;
+let greetCustomer: greet = (customerName: string) => `Welcome ${customerName}`;
+
+console.log(greetUser("Amal"));
+console.log(greetCustomer('Kamal'));
+
+
+type display = () => void;
+
+let displayResult: display = () => { console.log('display something') };
+let displayAverageMarks: display = () => {
+    let avg = (45 + 59 + 75) / 3;
+    console.log("average marks: " + Math.round(avg * 100) / 100);
+};
+
+displayResult();
+displayAverageMarks();
+
+// () => {...} arrow function
+
+
+
+/* tuple type alias */
+
+type Point = [number, number];
+let coordinate: Point = [14, 27];
+
+console.log(coordinate);
+
+
+
+/* union type alias */
+
+type Status = "success" | "error" | "loading";
+
+let currentStatus: Status = "loading";
+currentStatus = "error";
+// currentStatus = "done"; //Error: Type '"done"' is not assignable to type 'Status'.
+
+type id = string | number;
+
+
+
+/* intersection type alias */
+
+type ItemName = {
+    name: string
+}
+
+type ItemCode = {
+    code: number
+}
+
+type ItemExpired = {
+    isExpired: boolean
+}
+
+type Item = ItemName & ItemCode & ItemExpired;
+
+let item1: Item = {
+    name: "Fresh Milk",
+    code: 34,
+    isExpired: false
+}
+
+console.log(item1); //{ name: 'Fresh Milk', code: 34, isExpired: false }
