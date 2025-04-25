@@ -3,6 +3,13 @@ class BankAccount {
 
     displayData() {
         console.log(`owner name: ${this.ownerName}, account number: ${this.accountNumber}, balance: ${this.balance}`);
+        // console.log(`account type is saving: ${this.isSaving}`);
+        /*
+         * Property 'isSaving' does not exist on type 'BankAccount',
+         * because 'isSaving' wasn't stored in the class instance.
+         * So, it's just a regular parameter, not a class property.
+         * It doesn't have an access modifier (public, private, or protected)
+         */
     }
 
     depositMoney(amount: number): void {
@@ -32,6 +39,6 @@ acc1.depositMoney(20000);
 acc1.withdrawMoney(5000);
 
 let balance = acc1.getBalance();
-console.log(balance); // 45400
+console.log(balance); //45400
 
 console.log(acc1.getAccountNumber()); // 34-070-810
