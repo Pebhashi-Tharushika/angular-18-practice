@@ -33,3 +33,9 @@ console.log(marksArray);
 var tuple1; // Declare a tuple type
 tuple1 = ["Amal", 37, true]; // Assign values in correct order
 console.log(tuple1);
+/* function */
+function greet(name) {
+    return "hello ".concat(name, "!");
+}
+console.log(greet('Amal'));
+console.log(greet(23));

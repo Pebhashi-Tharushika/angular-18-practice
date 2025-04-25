@@ -52,3 +52,11 @@ let tuple1: [string, number, boolean];  // Declare a tuple type
 tuple1 = ["Amal", 37, true];            // Assign values in correct order
 console.log(tuple1);
 
+
+/* function */
+function greet(name:string){
+    return `hello ${name}!`;
+}
+console.log(greet('Amal'));
+// console.log(greet(23)); // error: Argument of type 'number' is not assignable to parameter of type 'string'
+
