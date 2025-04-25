@@ -54,3 +54,12 @@ var emp = {
 console.log(emp.name); // Sanu
 console.log(emp.age); // 25
 console.log(emp.department); // Engineering
+/* object vs Object in ts */
+/*----- object (represent primitives that are boxed and non-primitive types (objects)) -----*/
+var obj = { name: "Alice", age: 30 }; // Valid
+obj = [1, 2, 3]; // Valid
+// obj = "hello"; //Error: Type 'string' is not assignable to type 'object' - b'coz string is primitive data type
+/*----- Object -----*/
+var obj2 = { name: "Alice" }; // Valid
+obj2 = 10; // Valid, because Number(10) is an object
+obj2 = "hello"; // Valid, because String("hello") is an object

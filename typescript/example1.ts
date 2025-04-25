@@ -32,7 +32,7 @@ function printUserDetails() {
 // console.log(r); // error: Cannot find name 'r'
 // console.log(t); // Cannot find name 't'
 
-const pi = 3.14; 
+const pi = 3.14;
 // pi = 3; // error - Cannot assign to 'pi' because it is a constant
 
 
@@ -54,7 +54,7 @@ console.log(tuple1);
 
 
 /* function */
-function greet(name:string){
+function greet(name: string) {
     return `hello ${name}!`;
 }
 console.log(greet('Amal'));
@@ -86,19 +86,30 @@ console.log(processUser(user1)); // Name: Amal, Age: 45
 interface Person {
     name: string;
     age: number;
-  }
-  
-  interface Employee extends Person {
+}
+
+interface Employee extends Person {
     department: string;
-  }
-  
-  const emp: Employee = {
+}
+
+const emp: Employee = {
     name: "Sanu",
     age: 25,
     department: "Engineering"
-  };
-  
-  console.log(emp.name);       // Sanu
-  console.log(emp.age);       // 25
-  console.log(emp.department); // Engineering
+};
 
+console.log(emp.name);       // Sanu
+console.log(emp.age);       // 25
+console.log(emp.department); // Engineering
+
+/* object vs Object in ts */
+
+/*----- object (represent primitives that are boxed and non-primitive types (objects)) -----*/
+let obj: object = { name: "Alice", age: 30 };  // Valid
+obj = [1, 2, 3];  // Valid
+// obj = "hello"; //Error: Type 'string' is not assignable to type 'object' - b'coz string is primitive data type
+
+/*----- Object -----*/
+let obj2: Object = { name: "Alice" };  // Valid
+obj2 = 10;  // Valid, because Number(10) is an object
+obj2 = "hello";  // Valid, because String("hello") is an object
