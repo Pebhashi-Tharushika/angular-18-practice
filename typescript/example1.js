@@ -63,3 +63,17 @@ obj = [1, 2, 3]; // Valid
 var obj2 = { name: "Alice" }; // Valid
 obj2 = 10; // Valid, because Number(10) is an object
 obj2 = "hello"; // Valid, because String("hello") is an object
+function displayStudentInfo(user) {
+    return "Name: ".concat(user.name, ", Age: ").concat(user.age);
+}
+var student = {
+    name: "Saman"
+};
+console.log(displayStudentInfo(student)); // Name: Chamod, Age: undefined
+function showPersonelInfo(name, age) {
+    console.log(name);
+    console.log(age);
+}
+showPersonelInfo("Amal");
+//Amal
+//undefined

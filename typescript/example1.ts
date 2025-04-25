@@ -113,3 +113,35 @@ obj = [1, 2, 3];  // Valid
 let obj2: Object = { name: "Alice" };  // Valid
 obj2 = 10;  // Valid, because Number(10) is an object
 obj2 = "hello";  // Valid, because String("hello") is an object
+
+
+
+/* ? - optional */
+
+/* ? with interface properties */
+interface Student {
+    name: string,
+    age?: number // optional character
+}
+
+function displayStudentInfo(user: Student) {
+    return `Name: ${user.name}, Age: ${user.age}`;
+}
+
+let student: Student = {
+    name: "Saman"
+};
+
+console.log(displayStudentInfo(student)); // Name: Saman, Age: undefined
+
+
+
+/* ? with function parameers */
+function showPersonelInfo(name:string, age?:number){
+    console.log(name);
+    console.log(age);
+}
+
+showPersonelInfo("Amal");
+//Amal
+//undefined
