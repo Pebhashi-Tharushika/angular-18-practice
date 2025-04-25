@@ -122,4 +122,25 @@ var item1 = {
     code: 34,
     isExpired: false
 };
-console.log(item1); //{ name: 'Amal', age: 34, jobTitle: 'Teacher' }
+console.log(item1); //{ name: 'Fresh Milk', code: 34, isExpired: false }
+/*-------------------------------- any ------------------------------*/
+var a = "Saman";
+a = 26;
+console.log('a: ' + a);
+a = true;
+console.log('a: ' + a);
+a = "Japan";
+console.log('a: ' + a);
+a = 5.3;
+console.log('a: ' + a);
+/*-------------------------- type assertion ------------------------------*/
+var value = "Hello World";
+var strLength2 = value.length; // 'as' syntax (recommended)
+var strLength1 = value.length; // Angle-bracket syntax
+var id = '52';
+var id1 = id;
+console.log(typeof id1); // string
+// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
+var id2 = id;
+console.log(typeof id2); // string
+console.log(id2.length);

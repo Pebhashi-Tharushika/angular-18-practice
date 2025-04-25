@@ -261,3 +261,37 @@ let item1: Item = {
 }
 
 console.log(item1); //{ name: 'Fresh Milk', code: 34, isExpired: false }
+
+
+
+/*-------------------------------- any ------------------------------*/
+let a: any = "Saman";
+a = 26;
+console.log('a: ' + a);
+
+a = true;
+console.log('a: ' + a);
+
+a = "Japan";
+console.log('a: ' + a);
+
+a = 5.3;
+console.log('a: ' + a);
+
+
+
+/*-------------------------- type assertion ------------------------------*/
+
+let value: any = "Hello World";
+let strLength2 = (value as string).length; // 'as' syntax (recommended)
+let strLength1 = (<string>value).length;  // Angle-bracket syntax
+
+let id: any = '52';
+
+let id1 = id as number;
+console.log(typeof id1); // string
+// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
+
+let id2 = id as string;
+console.log(typeof id2); // string
+console.log(id2.length)
