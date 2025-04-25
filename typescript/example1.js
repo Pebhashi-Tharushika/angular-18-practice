@@ -46,3 +46,11 @@ var user1 = {
     age: 45
 };
 console.log(processUser(user1)); // Name: Amal, Age: 45
+var emp = {
+    name: "Sanu",
+    age: 25,
+    department: "Engineering"
+};
+console.log(emp.name); // Sanu
+console.log(emp.age); // 25
+console.log(emp.department); // Engineering

@@ -80,3 +80,25 @@ let user1: User = {
 
 console.log(processUser(user1)); // Name: Amal, Age: 45
 
+
+
+/* extends interface */
+interface Person {
+    name: string;
+    age: number;
+  }
+  
+  interface Employee extends Person {
+    department: string;
+  }
+  
+  const emp: Employee = {
+    name: "Sanu",
+    age: 25,
+    department: "Engineering"
+  };
+  
+  console.log(emp.name);       // Sanu
+  console.log(emp.age);       // 25
+  console.log(emp.department); // Engineering
+
