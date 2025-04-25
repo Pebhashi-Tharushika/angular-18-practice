@@ -531,3 +531,42 @@ const vd: VehicleDriver = {
 };
 
 console.log(vd);
+
+
+
+/*----------------- Loose Equality (==) and Strict Equality (===) ----------------*/
+// console.log(5 == '5'); // Error - This comparison appears to be unintentional because the types 'number' and 'string' have no overlap.
+// console.log(5 === '5'); // Error - This comparison appears to be unintentional because the types 'number' and 'string' have no overlap.
+
+let g = 30;
+let h = 30;
+console.log(g == h); // true 
+console.log(g === h); // true
+h = 40;
+console.log(g == h); // false 
+console.log(g === h); // false
+
+let i = '5';
+let j = '5';
+console.log(i == j); // true 
+console.log(i === j); // true
+i = 's5'
+console.log(i == j); // false 
+console.log(i === j); // false
+
+let student1 = { name: 'Kasun', marks: 77 };
+let student2 = { name: 'Kasun', marks: 77 };
+console.log(student1 == student2); // false
+console.log(student1 === student2); // false
+student1 = student2;
+console.log(student1 == student2); // true
+console.log(student1 === student2); // true
+
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+console.log(null == 10) // false
+console.log(null === 10) // false
+
+console.log(null == 0) // false
+console.log(null === 0) // false

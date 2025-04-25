@@ -2,7 +2,7 @@ let message = "Hi, Amal";
 console.log(message);
 
 /* js function */
-function greet(name){
+function greet(name) {
     return `hello ${name}!`;
 }
 
@@ -24,9 +24,13 @@ console.log(processUser(invalidUser)) // Name: false, Age: Kamal
 
 /* js have no enums */
 const Direction = {
-    North : 1,
-    East : 2,
-    South : 3,
-    West : 4
-  }
-  console.log(Direction.North); // 1
+    North: 1,
+    East: 2,
+    South: 3,
+    West: 4
+}
+console.log(Direction.North); // 1
+
+// == vs ===
+console.log(5 == '5'); //true
+console.log(5 === '5'); //false
