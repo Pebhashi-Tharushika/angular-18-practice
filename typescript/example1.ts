@@ -265,40 +265,76 @@ console.log(item1); //{ name: 'Fresh Milk', code: 34, isExpired: false }
 
 
 /*-------------------------------- any ------------------------------*/
-let a: any = "Saman";
+let a: any;
+console.log('a: ' + a + ' - ' + typeof a); // a: undefined - undefined
+
 a = 26;
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: 26 - number
 
 a = true;
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: true - boolean
 
 a = "Japan";
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: Japan - string
 
 a = 5.3;
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: 5.3 - number
+
+a = [1, 2, 3, 4, 5];
+console.log('a: ' + a + ' - ' + typeof a); // a: 1,2,3,4,5 - object
+
+a = { 'id': 1, 'name': 'ABC' };
+console.log('a: ' + a + ' - ' + typeof a); // a: [object Object] - object
+
+a = null;
+console.log('a: ' + a + ' - ' + typeof a); // a: null - object
+
+a = undefined;
+console.log('a: ' + a + ' - ' + typeof a); // a: undefined - undefined
+
+// a = any; // 'any' only refers to a type, it can't be used as a value here.
+
+// a = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
 
 
 
-/*-------------------------- type assertion ------------------------------*/
 
-let value: any = "Hello World";
-let strLength2 = (value as string).length; // 'as' syntax (recommended)
-let strLength1 = (<string>value).length;  // Angle-bracket syntax
+/*------------------------------- unknown -------------------------------*/
+let b: unknown;
+console.log('b: ' + b + ' - ' + typeof b); // b: undefined - undefined
 
-let id: any = '52';
+b = 26;
+console.log('b: ' + b + ' - ' + typeof b); // b: 26 - number
 
-let id1 = id as number;
-console.log(typeof id1); // string
-// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
+b = true;
+console.log('b: ' + b + ' - ' + typeof b); // b: true - boolean
 
-let id2 = id as string;
-console.log(typeof id2); // string
-console.log(id2.length)
+b = "Japan";
+console.log('b: ' + b + ' - ' + typeof b); // b: Japan - string
+
+b = 5.3;
+console.log('b: ' + b + ' - ' + typeof b); // b: 5.3 - number
+
+b = [1, 2, 3, 4, 5];
+console.log('b: ' + b + ' - ' + typeof b); // b: 1,2,3,4,5 - object
+
+b = { 'id': 1, 'name': 'ABC' };
+console.log('b: ' + b + ' - ' + typeof b); // b: [object Object] - object
+
+b = null;
+console.log('b: ' + b + ' - ' + typeof b); // b: null - object
+
+b = undefined;
+console.log('b: ' + b + ' - ' + typeof b); // b: undefined - undefined
+
+// b = any; // 'any' only refers to a type, it can't be used as a value here.
+
+// b = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
 
 
 
-/*----------------------- undefined -----------------------*/
+
+/*----------------------------------- undefined -------------------------------------*/
 
 let x;
 console.log(x); // undefined
@@ -313,23 +349,162 @@ console.log(z); // undefined
 console.log(typeof z); // undefined
 
 
+let c;
+console.log('c: ' + c + ' - ' + typeof c); // c: undefined - undefined
+
+c = 26;
+console.log('c: ' + c + ' - ' + typeof c); // c: 26 - number
+
+c = true;
+console.log('c: ' + c + ' - ' + typeof c); // c: true - boolean
+
+c = "Japan";
+console.log('c: ' + c + ' - ' + typeof c); // c: Japan - string
+
+c = 5.3;
+console.log('c: ' + c + ' - ' + typeof c); // c: 5.3 - number
+
+c = [1, 2, 3, 4, 5];
+console.log('c: ' + c + ' - ' + typeof c); // c: 1,2,3,4,5 - object
+
+c = { 'id': 1, 'name': 'ABC' };
+console.log('c: ' + c + ' - ' + typeof c); // c: [object Object] - object
+
+c = null;
+console.log('c: ' + c + ' - ' + typeof c); // c: null - object
+
+c = undefined;
+console.log('c: ' + c + ' - ' + typeof c); // c: undefined - undefined
+
+// c = any; // 'any' only refers to a type, it can't be used as a value here.
+
+// c = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+
+
+let d: undefined = undefined;
+// d = 10; // Error - Type '10' is not assignable to type 'undefined'
+// d = {};
+// d = null;
+d = undefined;
+
+
+
+
 
 /*------------------------------ null -------------------------*/
 
 let p: number | null = null;
 
-let q = null;
-console.log(typeof q); // object
+let q: number | null = 6;
+q = null;
+q = 57;
 
 let r = null;
-// r = "success"; // Error - Type '"success"' is not assignable to type 'null'.
+console.log('r: ' + r + ' - ' + typeof r); // r: null - object
 
-let s = "saved";
-// s = null; //Error - Type 'null' is not assignable to type 'string'.
+let s: null = null;
+console.log('s: ' + s + ' - ' + typeof s); // s: null - object
 
-let t: Array<string> = ["abc", "def", "ghi"];
-console.log(typeof t); //object
-// t = null; // Error - Type 'null' is not assignable to type 'string[]'
 
-let u: number | null = 6;
-u = null;
+let t = "saved";
+// t = null; //Error - Type 'null' is not assignable to type 'string'.
+
+let u: Array<string> = ["abc", "def", "ghi"];
+console.log(typeof u); //object
+// u = null; // Error - Type 'null' is not assignable to type 'string[]'
+
+
+let v: null = null;
+//  v = "success"; // Error - Type '"success"' is not assignable to type 'null'.
+
+
+let e: null;
+
+// e = 26; // Error - Type '26' is not assignable to type 'null'
+
+// e = true; // Error - Type 'true' is not assignable to type 'null'.
+
+// e = "Japan"; // Error 
+
+// e = 5.3; // Error 
+
+// e = [1, 2, 3, 4, 5]; // Error
+
+// e = { 'id': 1, 'name': 'ABC' }; // Error
+
+e = null;
+console.log('e: ' + e + ' - ' + typeof e); // e: null - object
+
+// e = undefined;
+
+// e = any; // 'any' only refers to a type, it can't be used as a value here.
+
+// e = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+
+
+
+
+
+
+/*-------------------------- type assertion ------------------------------*/
+
+let value: any = "Hello World";
+let strLength2 = (value as string).length; // 'as' syntax (recommended)
+let strLength1 = (<string>value).length;  // Angle-bracket syntax
+
+
+/*----------- type assertion and any ----------*/
+let id: any = '52';
+
+let id1 = id as number;
+console.log(typeof id1); // string
+// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
+console.log(id1 * 6); // 312
+console.log(id1 + 10); // 5210
+console.log((id as number) + 10); // 5210
+console.log(parseInt(id) + 10) //62 (because type of id is considered as any)
+// console.log(parseInt(id1) + 10) //Argument of type 'number' is not assignable to parameter of type 'string'
+
+let id2 = id as string;
+console.log(typeof id2); // string
+console.log(id2.length)
+
+
+/*----------- type assertion and unknown ----------*/
+let lang: unknown = "TypeScript";
+console.log(typeof lang); // string
+// console.log(lang.toUpperCase()); // Error - 'lang' is of type 'unknown'
+
+let langStr = (lang as string).toUpperCase();
+console.log(typeof lang); // string
+console.log(langStr); // "TYPESCRIPT"
+
+let sumStr: unknown = '234';
+let sum = sumStr as number;
+console.log(typeof sum); // string
+// console.log(sum.length)  // error: Property 'length' does not exist on type 'number'
+console.log('average = ' + sum / 4); //average = 58.5
+console.log(sum + 10); // 23410
+console.log((sumStr as number) + 10); // 23410
+// console.log(parseInt(sumStr) + 10); // Argument of type 'unknown' is not assignable to parameter of type 'string'
+// console.log(parseInt(sum) + 10) //Argument of type 'number' is not assignable to parameter of type 'string'
+
+
+// We can't  do type assertion with type 'undefined' and 'null'
+
+
+/*---- type assertion for convert JSON string to JS Object-------*/
+interface Patient {
+    name: string;
+    age: number;
+}
+let jsonString = '{"name": "Chamod", "age": 24}';
+
+let Patient1 = JSON.parse(jsonString) as Patient;
+
+let Patient2: User = JSON.parse(jsonString);//without type assertion
+
+
+
+
+

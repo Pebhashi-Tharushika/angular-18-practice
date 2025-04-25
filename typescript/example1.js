@@ -124,27 +124,48 @@ var item1 = {
 };
 console.log(item1); //{ name: 'Fresh Milk', code: 34, isExpired: false }
 /*-------------------------------- any ------------------------------*/
-var a = "Saman";
+var a;
+console.log('a: ' + a + ' - ' + typeof a); // a: undefined - undefined
 a = 26;
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: 26 - number
 a = true;
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: true - boolean
 a = "Japan";
-console.log('a: ' + a);
+console.log('a: ' + a + ' - ' + typeof a); // a: Japan - string
 a = 5.3;
-console.log('a: ' + a);
-/*-------------------------- type assertion ------------------------------*/
-var value = "Hello World";
-var strLength2 = value.length; // 'as' syntax (recommended)
-var strLength1 = value.length; // Angle-bracket syntax
-var id = '52';
-var id1 = id;
-console.log(typeof id1); // string
-// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
-var id2 = id;
-console.log(typeof id2); // string
-console.log(id2.length);
-/*----------------------- undefined -----------------------*/
+console.log('a: ' + a + ' - ' + typeof a); // a: 5.3 - number
+a = [1, 2, 3, 4, 5];
+console.log('a: ' + a + ' - ' + typeof a); // a: 1,2,3,4,5 - object
+a = { 'id': 1, 'name': 'ABC' };
+console.log('a: ' + a + ' - ' + typeof a); // a: [object Object] - object
+a = null;
+console.log('a: ' + a + ' - ' + typeof a); // a: null - object
+a = undefined;
+console.log('a: ' + a + ' - ' + typeof a); // a: undefined - undefined
+// a = any; // 'any' only refers to a type, it can't be used as a value here.
+// a = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+/*------------------------------- unknown -------------------------------*/
+var b;
+console.log('b: ' + b + ' - ' + typeof b); // b: undefined - undefined
+b = 26;
+console.log('b: ' + b + ' - ' + typeof b); // b: 26 - number
+b = true;
+console.log('b: ' + b + ' - ' + typeof b); // b: true - boolean
+b = "Japan";
+console.log('b: ' + b + ' - ' + typeof b); // b: Japan - string
+b = 5.3;
+console.log('b: ' + b + ' - ' + typeof b); // b: 5.3 - number
+b = [1, 2, 3, 4, 5];
+console.log('b: ' + b + ' - ' + typeof b); // b: 1,2,3,4,5 - object
+b = { 'id': 1, 'name': 'ABC' };
+console.log('b: ' + b + ' - ' + typeof b); // b: [object Object] - object
+b = null;
+console.log('b: ' + b + ' - ' + typeof b); // b: null - object
+b = undefined;
+console.log('b: ' + b + ' - ' + typeof b); // b: undefined - undefined
+// b = any; // 'any' only refers to a type, it can't be used as a value here.
+// b = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+/*----------------------------------- undefined -------------------------------------*/
 var x;
 console.log(x); // undefined
 console.log(typeof x); // undefined
@@ -154,16 +175,90 @@ console.log(typeof y); // number
 var z = undefined;
 console.log(z); // undefined
 console.log(typeof z); // undefined
+var c;
+console.log('c: ' + c + ' - ' + typeof c); // c: undefined - undefined
+c = 26;
+console.log('c: ' + c + ' - ' + typeof c); // c: 26 - number
+c = true;
+console.log('c: ' + c + ' - ' + typeof c); // c: true - boolean
+c = "Japan";
+console.log('c: ' + c + ' - ' + typeof c); // c: Japan - string
+c = 5.3;
+console.log('c: ' + c + ' - ' + typeof c); // c: 5.3 - number
+c = [1, 2, 3, 4, 5];
+console.log('c: ' + c + ' - ' + typeof c); // c: 1,2,3,4,5 - object
+c = { 'id': 1, 'name': 'ABC' };
+console.log('c: ' + c + ' - ' + typeof c); // c: [object Object] - object
+c = null;
+console.log('c: ' + c + ' - ' + typeof c); // c: null - object
+c = undefined;
+console.log('c: ' + c + ' - ' + typeof c); // c: undefined - undefined
+// c = any; // 'any' only refers to a type, it can't be used as a value here.
+// c = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+var d = undefined;
+// d = 10; // Error - Type '10' is not assignable to type 'undefined'
+// d = {};
+// d = null;
+d = undefined;
 /*------------------------------ null -------------------------*/
 var p = null;
-var q = null;
-console.log(typeof q); // object
+var q = 6;
+q = null;
+q = 57;
 var r = null;
-// r = "success"; // Error - Type '"success"' is not assignable to type 'null'.
-var s = "saved";
-// s = null; //Error - Type 'null' is not assignable to type 'string'.
-var t = ["abc", "def", "ghi"];
-console.log(typeof t); //object
-// t = null; // Error - Type 'null' is not assignable to type 'string[]'
-var u = 6;
-u = null;
+console.log('r: ' + r + ' - ' + typeof r); // r: null - object
+var s = null;
+console.log('s: ' + s + ' - ' + typeof s); // s: null - object
+var t = "saved";
+// t = null; //Error - Type 'null' is not assignable to type 'string'.
+var u = ["abc", "def", "ghi"];
+console.log(typeof u); //object
+// u = null; // Error - Type 'null' is not assignable to type 'string[]'
+var v = null;
+//  v = "success"; // Error - Type '"success"' is not assignable to type 'null'.
+var e;
+// e = 26; // Error - Type '26' is not assignable to type 'null'
+// e = true; // Error - Type 'true' is not assignable to type 'null'.
+// e = "Japan"; // Error 
+// e = 5.3; // Error 
+// e = [1, 2, 3, 4, 5]; // Error
+// e = { 'id': 1, 'name': 'ABC' }; // Error
+e = null;
+console.log('e: ' + e + ' - ' + typeof e); // e: null - object
+// e = undefined;
+// e = any; // 'any' only refers to a type, it can't be used as a value here.
+// e = unknown; // 'unknown' only refers to a type, it can't be used as a value here.
+/*-------------------------- type assertion ------------------------------*/
+var value = "Hello World";
+var strLength2 = value.length; // 'as' syntax (recommended)
+var strLength1 = value.length; // Angle-bracket syntax
+/*----------- type assertion and any ----------*/
+var id = '52';
+var id1 = id;
+console.log(typeof id1); // string
+// console.log(id1.length)  // error: Property 'length' does not exist on type 'number'
+console.log(id1 * 6); // 312
+console.log(id1 + 10); // 5210
+console.log(id + 10); // 5210
+console.log(parseInt(id) + 10); //62 (because type of id is considered as any)
+// console.log(parseInt(id1) + 10) //Argument of type 'number' is not assignable to parameter of type 'string'
+var id2 = id;
+console.log(typeof id2); // string
+console.log(id2.length);
+/*----------- type assertion and unknown ----------*/
+var lang = "TypeScript";
+console.log(typeof lang); // string
+// console.log(lang.toUpperCase()); // Error - 'lang' is of type 'unknown'
+var langStr = lang.toUpperCase();
+console.log(typeof lang); // string
+console.log(langStr); // "TYPESCRIPT"
+var sumStr = '234';
+var sum = sumStr;
+console.log(typeof sum); // string
+// console.log(sum.length)  // error: Property 'length' does not exist on type 'number'
+console.log('average = ' + sum / 4); //average = 58.5
+console.log(sum + 10); // 5210
+console.log(sumStr + 10); // 5210
+var jsonString = '{"name": "Chamod", "age": 24}';
+var Patient1 = JSON.parse(jsonString);
+var Patient2 = JSON.parse(jsonString); //without type assertion
