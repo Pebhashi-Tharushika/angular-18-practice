@@ -9,7 +9,7 @@ var country = "Japan";
 var age = 20;
 var weight = 63.25;
 var isMarried = false;
-/* let(new kewword) , var(old keyword) , const */
+/* let(new keyword) , var(old keyword) , const */
 if (true) {
     var m = "Amal";
     var n = 6;
@@ -24,3 +24,12 @@ function printUserDetails() {
 // console.log(t); // Cannot find name 't'
 var pi = 3.14;
 // pi = 3; // error - Cannot assign to 'pi' because it is a constant
+/* array Vs Array */
+var marks = [12, 34, 45]; // array
+console.log(marks);
+var marksArray = [12, 65, 89]; // Array interface
+console.log(marksArray);
+/* tuple */
+var tuple1; // Declare a tuple type
+tuple1 = ["Amal", 37, true]; // Assign values in correct order
+console.log(tuple1);

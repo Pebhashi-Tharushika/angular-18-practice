@@ -16,7 +16,7 @@ let weight: number = 63.25;
 let isMarried: boolean = false;
 
 
-/* let(new kewword) , var(old keyword) , const */
+/* let(new keyword) , var(old keyword) , const */
 
 if (true) {
     let m: string = "Amal";
@@ -34,3 +34,21 @@ function printUserDetails() {
 
 const pi = 3.14; 
 // pi = 3; // error - Cannot assign to 'pi' because it is a constant
+
+
+
+/* array Vs Array */
+
+let marks: number[] = [12, 34, 45]; // array
+console.log(marks)
+
+let marksArray: Array<number> = [12, 65, 89]; // Array interface
+console.log(marksArray)
+
+
+
+/* tuple */
+let tuple1: [string, number, boolean];  // Declare a tuple type
+tuple1 = ["Amal", 37, true];            // Assign values in correct order
+console.log(tuple1);
+
