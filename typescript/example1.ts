@@ -135,7 +135,6 @@ let student: Student = {
 console.log(displayStudentInfo(student)); // Name: Saman, Age: undefined
 
 
-
 /* ? with function parameers */
 function showPersonelInfo(name:string, age?:number){
     console.log(name);
@@ -145,3 +144,25 @@ function showPersonelInfo(name:string, age?:number){
 showPersonelInfo("Amal");
 //Amal
 //undefined
+
+
+
+/* enum */
+enum Direction {
+    North,
+    East,
+    South,
+    West
+  }
+  let dir: Direction = Direction.North;
+  console.log(dir); // 0
+
+
+  /* enum  with custom values */
+  enum colors {
+    RED = 100,
+    GREEN = 200,
+    BLUE = 300,
+    WHITE = 400
+  }
+  console.log(colors.BLUE); // 100

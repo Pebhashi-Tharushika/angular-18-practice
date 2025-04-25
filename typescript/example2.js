@@ -20,3 +20,13 @@ console.log(processUser(user)) // Name: Amal, Age: 12
 
 let invalidUser = { name: false, age: "Kamal" }
 console.log(processUser(invalidUser)) // Name: false, Age: Kamal
+
+
+/* js have no enums */
+const Direction = {
+    North : 1,
+    East : 2,
+    South : 3,
+    West : 4
+  }
+  console.log(Direction.North); // 1

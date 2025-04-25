@@ -69,7 +69,8 @@ function displayStudentInfo(user) {
 var student = {
     name: "Saman"
 };
-console.log(displayStudentInfo(student)); // Name: Chamod, Age: undefined
+console.log(displayStudentInfo(student)); // Name: Saman, Age: undefined
+/* ? with function parameers */
 function showPersonelInfo(name, age) {
     console.log(name);
     console.log(age);
@@ -77,3 +78,22 @@ function showPersonelInfo(name, age) {
 showPersonelInfo("Amal");
 //Amal
 //undefined
+/* enum */
+var Direction;
+(function (Direction) {
+    Direction[Direction["North"] = 0] = "North";
+    Direction[Direction["East"] = 1] = "East";
+    Direction[Direction["South"] = 2] = "South";
+    Direction[Direction["West"] = 3] = "West";
+})(Direction || (Direction = {}));
+var dir = Direction.North;
+console.log(dir); // 0
+/* enum  with custom values */
+var colors;
+(function (colors) {
+    colors[colors["RED"] = 100] = "RED";
+    colors[colors["GREEN"] = 200] = "GREEN";
+    colors[colors["BLUE"] = 300] = "BLUE";
+    colors[colors["WHITE"] = 400] = "WHITE";
+})(colors || (colors = {}));
+console.log(colors.BLUE); // 100
