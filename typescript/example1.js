@@ -154,3 +154,16 @@ console.log(typeof y); // number
 var z = undefined;
 console.log(z); // undefined
 console.log(typeof z); // undefined
+/*------------------------------ null -------------------------*/
+var p = null;
+var q = null;
+console.log(typeof q); // object
+var r = null;
+// r = "success"; // Error - Type '"success"' is not assignable to type 'null'.
+var s = "saved";
+// s = null; //Error - Type 'null' is not assignable to type 'string'.
+var t = ["abc", "def", "ghi"];
+console.log(typeof t); //object
+// t = null; // Error - Type 'null' is not assignable to type 'string[]'
+var u = 6;
+u = null;

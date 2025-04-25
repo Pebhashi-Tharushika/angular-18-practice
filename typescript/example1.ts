@@ -312,3 +312,24 @@ let z: undefined = undefined;
 console.log(z); // undefined
 console.log(typeof z); // undefined
 
+
+
+/*------------------------------ null -------------------------*/
+
+let p: number | null = null;
+
+let q = null;
+console.log(typeof q); // object
+
+let r = null;
+// r = "success"; // Error - Type '"success"' is not assignable to type 'null'.
+
+let s = "saved";
+// s = null; //Error - Type 'null' is not assignable to type 'string'.
+
+let t: Array<string> = ["abc", "def", "ghi"];
+console.log(typeof t); //object
+// t = null; // Error - Type 'null' is not assignable to type 'string[]'
+
+let u: number | null = 6;
+u = null;
