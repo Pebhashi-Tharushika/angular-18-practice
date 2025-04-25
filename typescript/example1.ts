@@ -60,3 +60,23 @@ function greet(name:string){
 console.log(greet('Amal'));
 // console.log(greet(23)); // error: Argument of type 'number' is not assignable to parameter of type 'string'
 
+
+
+/* js Object vs ts interface */
+
+interface User {
+    name: string,
+    age: number
+}
+
+function processUser(user: User) {
+    return `Name: ${user.name}, Age: ${user.age}`;
+}
+
+let user1: User = {
+    name: "Amal",
+    age: 45
+};
+
+console.log(processUser(user1)); // Name: Amal, Age: 45
+

@@ -38,4 +38,11 @@ function greet(name) {
     return "hello ".concat(name, "!");
 }
 console.log(greet('Amal'));
-console.log(greet(23));
+function processUser(user) {
+    return "Name: ".concat(user.name, ", Age: ").concat(user.age);
+}
+var user1 = {
+    name: "Amal",
+    age: 45
+};
+console.log(processUser(user1)); // Name: Amal, Age: 45
