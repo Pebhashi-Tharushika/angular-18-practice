@@ -570,3 +570,32 @@ console.log(null === 10) // false
 
 console.log(null == 0) // false
 console.log(null === 0) // false
+
+
+/*------------------------------- falsy values -----------------------------*/
+// false
+let m1: boolean = false;
+if (!m1) console.log("m1 is false");
+
+// 0
+let m2: number = 0;
+if (!m2) console.log("m2 is zero");
+
+// empty string ("" or '')
+let m3: string = '';
+if (!m3) console.log("m3 is empty string");
+
+// null
+let m4: null = null;
+if (!m4) console.log("m4 is null");
+
+// undefined
+let m5: undefined = undefined;
+if (!m5) console.log("m5 is undefined");
+
+// NaN
+let m6 = NaN;
+if (!m6) console.log("m6 is NaN");
+
+
+

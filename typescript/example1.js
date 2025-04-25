@@ -302,3 +302,28 @@ console.log(null == 10); // false
 console.log(null === 10); // false
 console.log(null == 0); // false
 console.log(null === 0); // false
+/*------------------------------- falsy values -----------------------------*/
+// false
+var m1 = false;
+if (!m1)
+    console.log("m1 is false");
+// 0
+var m2 = 0;
+if (!m2)
+    console.log("m2 is zero");
+// empty string ("" or '')
+var m3 = '';
+if (!m3)
+    console.log("m3 is empty string");
+// null
+var m4 = null;
+if (!m4)
+    console.log("m4 is null");
+// undefined
+var m5 = undefined;
+if (!m5)
+    console.log("m5 is undefined");
+// NaN
+var m6 = NaN;
+if (!m6)
+    console.log("m6 is NaN");
