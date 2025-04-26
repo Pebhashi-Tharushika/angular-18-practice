@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,7 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-export class ChildComponent implements OnChanges, OnInit{
+export class ChildComponent implements OnChanges, OnInit, DoCheck{
 
   @Input() childName:string = ""; // pass parent component' value to hild component
 
@@ -26,4 +26,7 @@ export class ChildComponent implements OnChanges, OnInit{
     console.log(this.childName);
   }
   
+  ngDoCheck(): void {
+    console.log("DoCheck is triggered: ");
+  }
 }
