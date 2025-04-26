@@ -11,5 +11,6 @@ export class PostListItemComponent {
 
   // @Input() postListItemTitle:string = "";
 
-  @Input('postListItemTitle') postTitle: string = "";
+  /* If there is any change in names, use alias of @Input() decotator */
+  @Input('postListItemTitle') itemTitle: string = "";
 }
