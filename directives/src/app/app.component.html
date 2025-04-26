@@ -1,0 +1,24 @@
+<!-- ====================================== *ngIf ===================================== -->
+<h1 *ngIf="isLoggedIn">Welcome {{name}}!</h1>
+<h1 *ngIf="!isLoggedIn">Pls login.</h1>
+
+<h1 *ngIf="status === 'success'">Success</h1>
+<h1 *ngIf="marks > 50">Marks greater than 50.</h1>
+<h1 *ngIf="isLoggedIn && role === 'admin'">This is Admin</h1>
+
+<!-- =============================== *ngIf with else =================================== -->
+<h1 *ngIf="isLoggedIn; else info">Welcome {{name}}!</h1>
+<ng-template #info>
+  <h1>Pls login.</h1>
+</ng-template>
+
+<!-- ========================== *ngIf with then and else ================================ -->
+<div *ngIf="isLoggedIn; then loginTemplate else info"></div>
+
+<ng-template #loginTemplate>
+  <h1>Welcome {{name}}!</h1>
+</ng-template>
+
+<ng-template #info>
+  <h1>Pls login.</h1>
+</ng-template>
