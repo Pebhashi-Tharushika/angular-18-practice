@@ -1,0 +1,11 @@
+<!-- Text Interpolation Binding -->
+<h1>Parent: {{parentName}}</h1> 
+
+<!-- Template Variable -->
+<input #inputRef placeholder="Enter your name">
+
+<!-- Event Binding -->
+<button (click)="changeName(inputRef)">Change Name</button>
+
+<!-- Property Binding -->
+<app-child [childName]="parentName"></app-child>
