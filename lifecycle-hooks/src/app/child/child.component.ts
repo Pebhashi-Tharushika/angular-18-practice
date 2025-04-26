@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -11,6 +11,8 @@ import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoChec
 export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit {
 
   @Input() childName: string = ""; // pass parent component' value to hild component
+
+  @ViewChild('paragraph') para !: ElementRef;
 
   // counter: number = 0;
 
@@ -43,6 +45,7 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentI
 
   ngAfterViewInit(): void {
     console.log("AfterViewInit is triggered: ");
+    console.log('Paragraph Text: ', this.para.nativeElement.textContent);
   }
 
   // incrementCounter() {
