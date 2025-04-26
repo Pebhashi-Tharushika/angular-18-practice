@@ -1,10 +1,11 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import { AppHighlightDirective } from '../directives/app-highlight.directive';
 
 @Component({
   selector: 'app-attribute-directive',
   standalone: true,
-  imports: [NgStyle, NgClass],
+  imports: [NgStyle, NgClass, AppHighlightDirective], // import AppHighlightDirective 
   templateUrl: './attribute-directive.component.html',
   styleUrl: './attribute-directive.component.css'
 })
