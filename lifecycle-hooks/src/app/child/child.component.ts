@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,51 +8,53 @@ import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoChec
   styleUrl: './child.component.css'
 })
 
-export class ChildComponent /*implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit*/ {
+export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit,AfterViewChecked {
 
-  // @Input() childName: string = ""; // pass parent component' value to hild component
+  @Input() childName: string = ""; // pass parent component' value to hild component
 
-  // @ViewChild('paragraph') para !: ElementRef;
+  @ViewChild('paragraph') para !: ElementRef;
 
-  // counter: number = 0;
+  counter: number = 0;
 
-  message: string = "This is child message";
+  constructor() {
+    console.log("Constructor is triggered");
+    console.log(this.childName);
+  }
 
-  // constructor() {
-  //   console.log("Constructor is triggered");
-  //   console.log(this.childName);
-  // }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("OnChanges is triggered: ");
+    console.log(changes);
+  }
 
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   console.log("OnChanges is triggered: ");
-  //   console.log(changes);
-  // }
+  ngOnInit(): void {
+    console.log("OnInit is triggered: ");
+    console.log(this.childName);
+  }
 
-  // ngOnInit(): void {
-  //   console.log("OnInit is triggered: ");
-  //   console.log(this.childName);
-  // }
+  ngDoCheck(): void {
+    console.log("DoCheck is triggered: ");
+  }
 
-  // ngDoCheck(): void {
-  //   console.log("DoCheck is triggered: ");
-  // }
+  ngAfterContentInit(): void {
+    console.log("AfterContentInit is triggered: ");
+  }
 
-  // ngAfterContentInit(): void {
-  //   console.log("AfterContentInit is triggered: ");
-  // }
+  ngAfterContentChecked(): void {
+    console.log("AfterContentChecked is triggered: ");
+  }
 
-  // ngAfterContentChecked(): void {
-  //   console.log("AfterContentChecked is triggered: ");
-  // }
+  ngAfterViewInit(): void {
+    console.log("AfterViewInit is triggered: ");
+    console.log('Paragraph Text: ', this.para.nativeElement.textContent);
+  }
 
-  // ngAfterViewInit(): void {
-  //   console.log("AfterViewInit is triggered: ");
-  //   console.log('Paragraph Text: ', this.para.nativeElement.textContent);
-  // }
+  ngAfterViewChecked(): void {
+    console.log("AfterViewChecked is triggered: ");
+  }
 
-  // incrementCounter() {
-  //   this.counter++;
-  // }
+  incrementCounter() {
+    this.counter++;
+  }
 }
 
 
