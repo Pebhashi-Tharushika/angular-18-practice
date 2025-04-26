@@ -7,11 +7,13 @@ import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@an
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-export class ChildComponent implements OnChanges, OnInit, DoCheck{
+export class ChildComponent implements OnChanges, OnInit, DoCheck {
 
-  @Input() childName:string = ""; // pass parent component' value to hild component
+  @Input() childName: string = ""; // pass parent component' value to hild component
 
-  constructor(){
+  counter: number = 0;
+
+  constructor() {
     console.log("Constructor is triggered");
     console.log(this.childName);
   }
@@ -25,8 +27,14 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck{
     console.log("OnInit is triggered: ");
     console.log(this.childName);
   }
-  
+
   ngDoCheck(): void {
     console.log("DoCheck is triggered: ");
   }
+
+  incrementCounter() {
+    this.counter++;
+  }
 }
+
+
