@@ -36,3 +36,24 @@
     <li>{{student}}</li>
     }
 </ol>
+
+
+
+
+<!-- ====================================== @empty ===================================== -->
+<h1 *ngIf="users.length == 0">There are no any users.</h1>
+<ul>
+    <li *ngFor="let user of users">{{user.id}} | {{user.name}} | {{user.email}}</li>
+</ul>
+
+
+<ul>
+  @for( user of users ; track user){
+  <li>{{user.id}} | {{user.name}} | {{user.email}} </li>
+  }
+  @empty {
+  <h1>There are no any users.</h1>
+  }
+</ul>
+
+
