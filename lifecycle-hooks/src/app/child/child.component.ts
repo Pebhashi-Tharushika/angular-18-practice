@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,11 +7,11 @@ import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@an
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-export class ChildComponent implements OnChanges, OnInit, DoCheck {
+export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked {
 
   @Input() childName: string = ""; // pass parent component' value to hild component
 
-  counter: number = 0;
+  // counter: number = 0;
 
   constructor() {
     console.log("Constructor is triggered");
@@ -32,9 +32,17 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck {
     console.log("DoCheck is triggered: ");
   }
 
-  incrementCounter() {
-    this.counter++;
+  ngAfterContentInit(): void {
+    console.log("AfterContentInit is triggered: ");
   }
+
+  ngAfterContentChecked(): void {
+    console.log("AfterContentChecked is triggered: ");
+  }
+
+  // incrementCounter() {
+  //   this.counter++;
+  // }
 }
 
 

@@ -1,5 +1,5 @@
 <!-- Text Interpolation Binding -->
-<h1>Parent: {{parentName}}</h1> 
+<h1>Parent: {{parentName}}</h1>
 
 <!-- Template Variable -->
 <input #inputRef placeholder="Enter your name">
@@ -8,4 +8,6 @@
 <button (click)="changeName(inputRef)">Change Name</button>
 
 <!-- Property Binding -->
-<app-child [childName]="parentName"></app-child>
+<app-child [childName]="parentName">
+  <h3>This is projected content and I'm from Parent, name: {{parentName}}</h3>
+</app-child>
