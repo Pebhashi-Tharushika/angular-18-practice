@@ -3,14 +3,27 @@
 <h1 *ngIf="!isLoggedIn">Pls login.</h1>
 
 <h1 *ngIf="status === 'success'">Success</h1>
+
 <h1 *ngIf="marks > 50">Marks greater than 50.</h1>
-<h1 *ngIf="isLoggedIn && role === 'admin'">This is Admin</h1>
+
 
 <!-- =============================== *ngIf with else =================================== -->
 <h1 *ngIf="isLoggedIn; else info">Welcome {{name}}!</h1>
 <ng-template #info>
   <h1>Pls login.</h1>
 </ng-template>
+
+<h1 *ngIf="status === 'success'; else failedTemplate">Success</h1>
+<ng-template #failedTemplate>
+  <h1>Failed</h1>
+</ng-template>
+
+<h1 *ngIf="marks > 50; else lessOrEqual">Marks greater than 50.</h1>
+
+<ng-template #lessOrEqual>
+  <h1>Marks less than or equal to 50.</h1>
+</ng-template>
+
 
 <!-- ========================== *ngIf with then and else ================================ -->
 <div *ngIf="isLoggedIn; then loginTemplate else info"></div>
@@ -22,3 +35,121 @@
 <ng-template #info>
   <h1>Pls login.</h1>
 </ng-template>
+
+
+
+<!-- ========================== @if ================================ -->
+@if(isLoggedIn){
+<h1>Welcome {{name}}!</h1>
+}
+@if(!isLoggedIn){
+<h1>Pls login.</h1>
+}
+
+
+<!-- ========================== @if with @else ================================ -->
+@if(isLoggedIn){
+<h1>Welcome {{name}}!</h1>
+}
+@else {
+<h1>Pls login.</h1>
+}
+
+
+@if(status === 'success'){
+<h1>Success</h1>
+}
+@else {
+<h1>Failed</h1>
+}
+
+
+@if(marks>50){
+<h1>Marks greater than 50.</h1>
+}@else {
+<h1>Marks less than or equal to 50.</h1>
+}
+
+
+<!-- ========================== @if Vs. @else ================================ -->
+
+<button (click)="toggleButton()">Toggle</button>
+
+<h2 *ngIf="isContentVisible">This is some content.</h2>
+
+@if(isContentVisible){
+<h2>This is some content.</h2>
+}
+
+<!-- ========================= @if, @else and @else if =========================== -->
+@if(role === 'admin'){
+<h1>This is Admin.</h1>
+}
+@if(role ==='editor'){
+<h1>This is Editor.</h1>
+}
+@if(role ==='user'){
+<h1>This is User.</h1>
+}
+
+
+@if(role === 'admin'){
+<h1>This is Admin.</h1>
+}
+@else if (role ==='editor'){
+<h1>This is Editor.</h1>
+}
+@else if (role ==='user'){
+<h1>This is User.</h1>
+}
+@else {
+<h1>Unknown role.</h1>
+}
+
+
+
+<h1 *ngIf="role === 'admin'">This is Admin.</h1>
+<h1 *ngIf="role ==='editor'">This is Editor.</h1>
+<h1 *ngIf="role ==='user'">This is User.</h1>
+
+
+<div *ngIf="role === 'admin'; then adminTemplate else editorTemplate "></div>
+
+<ng-template #adminTemplate>
+  <h1>This is Admin.</h1>
+</ng-template>
+
+<ng-template #editorTemplate>
+  <h1 *ngIf="role === 'editor';else userTemplate">This is Editor.</h1>
+</ng-template>
+
+<ng-template #userTemplate>
+  <h1 *ngIf="role === 'user';else unknownTemplate">This is User.</h1>
+</ng-template>
+
+<ng-template #unknownTemplate>
+  <h1>Unknown role.</h1>
+</ng-template>
+
+
+
+<!-- ===================== && and || for boolean expression  ======================== -->
+<h1 *ngIf="isLoggedIn && role === 'admin'">This is Admin</h1>
+
+@if(isLoggedIn && role ==='admin'){
+<h1>This is Admin</h1>
+}
+
+
+<!-- ========================== nested @if Vs. nested @else ================================ -->
+<div *ngIf="isLoggedIn">
+  <h1>welcome {{name}}!</h1>
+  <h2 *ngIf="role === 'admin'">Admin's Settings.</h2>
+</div>
+
+@if(isLoggedIn){
+  <h1>welcome {{name}}!</h1>
+  @if(role ==='admin'){
+  <h2>Admin's Settings.</h2>
+  }
+}

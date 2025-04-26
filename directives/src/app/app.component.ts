@@ -15,10 +15,16 @@ export class AppComponent {
 
   isLoggedIn: boolean = true;
 
-  status: string = 'success';
+  status: string = 'failed';
 
   marks: number = 70;
 
   role: string = 'admin';//editor, user, admin
+
+  isContentVisible: boolean = true;
+
+  toggleButton() {
+    this.isContentVisible = !this.isContentVisible
+  }
 
 }
