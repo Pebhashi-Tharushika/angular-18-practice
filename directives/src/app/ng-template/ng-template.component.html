@@ -1,0 +1,11 @@
+<ng-container *ngIf="isLoading; then loadingTemplate else contentTemplate"></ng-container>
+
+
+<ng-template #loadingTemplate>
+    <p>Loading data ...</p>
+</ng-template>
+
+
+<ng-template #contentTemplate>
+    <p>Data loaded successfully</p>
+</ng-template>
