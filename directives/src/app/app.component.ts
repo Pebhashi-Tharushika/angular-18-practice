@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { IfComponent } from './if/if.component';
 import { ForComponent } from './for/for.component';
 import { SwitchComponent } from './switch/switch.component';
+import { AttributeDirectiveComponent } from './attribute-directive/attribute-directive.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IfComponent, ForComponent, SwitchComponent],
+  imports: [IfComponent, ForComponent, SwitchComponent, AttributeDirectiveComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

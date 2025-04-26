@@ -1,0 +1,12 @@
+<!-- ngStyle - Attribute Directives -->
+
+<h1 [ngStyle]="{'color':isActive ? 'red' : 'purple', 
+                'textTransform': isActive ? 'uppercase' : 'lowercase'
+                }"
+>Welcome All!</h1>
+
+
+<h1 [ngStyle]="{'color':getActiveColor, 
+                'textTransform':getTextTransform
+                }"
+>Welcome All!</h1>
