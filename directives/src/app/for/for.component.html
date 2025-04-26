@@ -17,3 +17,22 @@
 <ul>
     <li *ngFor="let student of students">{{student}}</li>
 </ul>
+
+
+
+<!-- ====================================== @for ===================================== -->
+@for (student of students; track student){
+<h2>{{student}}</h2>
+}
+
+@for(student of students;track student){
+<ol>
+    <li>{{student}}</li>
+</ol>
+}
+
+<ol>
+    @for(student of students;track student){
+    <li>{{student}}</li>
+    }
+</ol>
