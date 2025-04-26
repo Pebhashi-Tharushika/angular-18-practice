@@ -1,4 +1,7 @@
+<!-- ========================= from parent to child ====================== -->
 <!-- <app-post-list></app-post-list> -->
+
+
 
 
 <!-- ========================= from child to parent ====================== -->
@@ -15,6 +18,15 @@
 <!-- ============ @Output ============ -->
 
 <!-- event binding -->
-<app-user (dataEmitter)="handleDataFromChild($event)"></app-user> <!-- consume event -->
+<!-- consume event -->
+<!-- <app-user (dataEmitter)="handleDataFromChild($event)"></app-user> -->
 
-<h1>{{message}}</h1> <!-- text interpolation binding -->
+<!-- text interpolation binding -->
+<!-- <h1>{{message}}</h1>  -->
+
+
+
+
+<!-- ================== Example for (parent => child) and (child => parent) ================ -->
+
+<app-post-list></app-post-list>

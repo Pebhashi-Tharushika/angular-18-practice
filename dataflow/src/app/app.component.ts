@@ -5,7 +5,7 @@ import { UserComponent } from './user/user.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PostListComponent, UserComponent], // import UserComponent
+  imports: [PostListComponent, /*UserComponent*/], // import PostListComponent
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -14,7 +14,7 @@ export class AppComponent /*implements AfterViewInit*/ { // implement by one of 
 
   // @ViewChild(UserComponent) userComponent!: UserComponent; // ! - non-null assertion operator
 
-  message: string = "";
+  // message: string = "";
 
   // constructor() {
   //   console.log(this.userComponent); //undefined
@@ -26,8 +26,8 @@ export class AppComponent /*implements AfterViewInit*/ { // implement by one of 
   //   this.message = this.userComponent.userMessage;
   // }
 
-  handleDataFromChild(message: string) {
-    console.log(message);
-    this.message = message;
-  }
+  // handleDataFromChild(message: string) {
+  //   console.log(message);
+  //   this.message = message;
+  // }
 }
