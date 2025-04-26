@@ -49,7 +49,8 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentI
   }
 
   ngAfterViewChecked(): void {
-    console.log("AfterViewChecked is triggered: ");
+    // console.log("AfterViewChecked is triggered: ");
+    console.log("AfterViewChecked is triggered: ", this.counter);
   }
 
   incrementCounter() {

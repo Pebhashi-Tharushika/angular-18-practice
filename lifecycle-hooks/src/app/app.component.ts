@@ -15,9 +15,17 @@ export class AppComponent { // Parent Component Class
 
   constructor(private viewContainer: ViewContainerRef){}
 
-  addCmponent(){
-    this.viewContainer.createComponent(UserComponent);
+  loadChildComponent(){
+    return ChildComponent;
   }
+
+  addCmponent(){
+    this.viewContainer.createComponent(ChildComponent);
+  }
+
+  // addCmponent(){
+  //   this.viewContainer.createComponent(UserComponent);
+  // }
 
   parentName: string = "Amal";
 
