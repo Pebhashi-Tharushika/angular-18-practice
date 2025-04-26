@@ -1,20 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { ChildComponent } from './child/child.component';
+import { UserComponent } from './user/user.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ChildComponent], // import ChildComponent
+  imports: [/*ChildComponent,*/UserComponent], // import UserComponent
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent { // Parent Component Class
   title = 'lifecycle-hooks';
 
-  parentName: string = "Amal";
+  constructor(private viewContainer: ViewContainerRef){
 
-  changeName(inputElement: HTMLInputElement) {
-    this.parentName = inputElement.value;
   }
+
+  addCmponent(){
+    this.viewContainer.createComponent(UserComponent);
+  }
+
+  // parentName: string = "Amal";
+
+  // changeName(inputElement: HTMLInputElement) {
+  //   this.parentName = inputElement.value;
+  // }
 }
