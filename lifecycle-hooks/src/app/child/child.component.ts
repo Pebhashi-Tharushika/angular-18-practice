@@ -11,6 +11,11 @@ export class ChildComponent implements OnChanges, OnInit{
 
   @Input() childName:string = ""; // pass parent component' value to hild component
 
+  constructor(){
+    console.log("Constructor is triggered");
+    console.log(this.childName);
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log("OnChanges is triggered: ");
     console.log(changes);
