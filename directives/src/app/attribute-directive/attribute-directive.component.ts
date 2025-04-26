@@ -1,10 +1,10 @@
-import { NgStyle } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-attribute-directive',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle, NgClass],
   templateUrl: './attribute-directive.component.html',
   styleUrl: './attribute-directive.component.css'
 })
