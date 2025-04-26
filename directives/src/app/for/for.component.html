@@ -48,12 +48,99 @@
 
 
 <ul>
-  @for( user of users ; track user){
-  <li>{{user.id}} | {{user.name}} | {{user.email}} </li>
-  }
-  @empty {
-  <h1>There are no any users.</h1>
-  }
+    @for( user of users ; track user){
+    <li>{{user.id}} | {{user.name}} | {{user.email}} </li>
+    }
+    @empty {
+    <h1>There are no any users.</h1>
+    }
 </ul>
 
 
+
+<!-- ================================= loop context variables ===================================== -->
+
+<!-- __________________ index / $index ___________________ -->
+
+<button (click)="addNewCustomer()">Add New Customer</button>
+
+<!-- <h1 *ngIf="customers.length == 0">There are no any customers.</h1>
+<ul>
+    <li *ngFor="let customer of customers; let i = index">{{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}</li>
+</ul> -->
+
+
+<ul>
+    @for( customer of customers; track $index; let i = $index){
+    <li>{{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}</li>
+    }
+    @empty {
+    <h1>There are no any users.</h1>
+    }
+</ul>
+
+
+
+<!-- __________________ first / $first ___________________ -->
+<ul>
+    <li *ngFor="let student of students; let i = index; let isFirst = first"
+        [style.fontWeight]="isFirst ? 'bold' : 'normal'">
+        {{isFirst}} - {{student}}
+    </li>
+</ul>
+
+<ul>
+    @for(fruit of fruits; track $index; let i = $index; let isFirst = $first){
+    <li [style.color]="isFirst ? 'red' : 'blue'">{{isFirst}} - {{fruit}}</li>
+    }
+</ul>
+
+
+
+<!-- __________________ last / $last ___________________ -->
+<ul>
+    <li *ngFor="let student of students; let i = index; let isLast = last"
+        [style.fontStyle]="isLast ? 'normal' : 'italic'">
+        {{isLast}} | {{student}}
+    </li>
+</ul>
+
+<ul>
+    @for(fruit of fruits; track $index; let i = $index; let isLast = $last){
+    <li [style.textTransform]="isLast ? 'lowercase' : 'uppercase'">{{isLast}} | {{fruit}}</li>
+    }
+</ul>
+
+
+
+
+<!-- __________________ even / $even ___________________ -->
+<ul>
+    <li *ngFor="let student of students; let i = index; let isEven = even"
+        [style.backgroundColor]="isEven ? 'pink' : 'cyan'">
+        {{isEven}} | {{student}}
+    </li>
+</ul>
+
+<ul>
+    @for(fruit of fruits; track $index; let i = $index; let isEven = $even){
+    <li [style.fontSize]="isEven ? '14px' : '24px'">{{isEven}} | {{fruit}}</li>
+    }
+</ul>
+
+
+
+
+<!-- __________________ odd / $odd ___________________ -->
+<ul>
+    <li *ngFor="let student of students; let i = index; let isOdd = odd"
+        [style.backgroundColor]="isOdd ? 'pink' : 'cyan'">
+        {{isOdd}} | {{student}}
+    </li>
+</ul>
+
+<ul>
+    @for(fruit of fruits; track $index; let i = $index; let isOdd = $odd){
+    <li [style.color]="isOdd ? 'purple' : 'green'">{{isOdd}} | {{fruit}}</li>
+    }
+</ul>
