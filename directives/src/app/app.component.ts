@@ -1,30 +1,14 @@
-import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { IfComponent } from './if/if.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgIf],
+  imports: [IfComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'directives';
-
-  name: string = "Chamod";
-
-  isLoggedIn: boolean = true;
-
-  status: string = 'failed';
-
-  marks: number = 70;
-
-  role: string = 'admin';//editor, user, admin
-
-  isContentVisible: boolean = true;
-
-  toggleButton() {
-    this.isContentVisible = !this.isContentVisible
-  }
+  
 
 }
