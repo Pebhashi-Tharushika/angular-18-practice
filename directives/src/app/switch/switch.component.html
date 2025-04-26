@@ -1,0 +1,21 @@
+<div [ngSwitch]="role">
+    <h1 *ngSwitchCase="'admin'">Welcome Admin!</h1>
+    <h1 *ngSwitchCase="'editor'">Welcome Editor!</h1>
+    <h1 *ngSwitchCase="'user'">Welcome User!</h1>
+    <h1 *ngSwitchDefault>Unknown User</h1>
+</div>
+
+@switch (role) {
+@case ('admin') {
+<h1>Welcome Admin!</h1>
+}
+@case ('editor'){
+<h1>Welcome Editor!</h1>
+}
+@case ('user') {
+<h1>Welcome User!</h1>
+}
+@default {
+<h1>Unknown User</h1>
+}
+}

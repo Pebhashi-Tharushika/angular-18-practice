@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { IfComponent } from './if/if.component';
 import { ForComponent } from './for/for.component';
+import { SwitchComponent } from './switch/switch.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IfComponent, ForComponent],
+  imports: [IfComponent, ForComponent, SwitchComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
 
 }
