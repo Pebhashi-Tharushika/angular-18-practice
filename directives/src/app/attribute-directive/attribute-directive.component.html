@@ -1,3 +1,17 @@
+<!-- style binding - Data Binding -->
+
+<h1 [style.color]="isActive ? 'red' : 'purple'" 
+    [style.textTransform]="isActive ? 'uppercase' : 'lowercase'"
+>Welcome All!</h1>
+
+
+<h1 [style.color]="getActiveColor" 
+    [style.textTransform]="getTextTransform"
+>Welcome All!</h1>
+
+
+
+
 <!-- ngStyle - Attribute Directives -->
 
 <h1 [ngStyle]="{'color':isActive ? 'red' : 'purple', 
