@@ -23,6 +23,10 @@ export class AppComponent { // Parent Component Class
     this.viewContainer.createComponent(ChildComponent);
   }
 
+  removeComponent(){
+    this.viewContainer.remove();
+  }
+
   // addCmponent(){
   //   this.viewContainer.createComponent(UserComponent);
   // }

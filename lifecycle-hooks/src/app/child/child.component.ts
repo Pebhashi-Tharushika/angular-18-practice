@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,7 +8,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   styleUrl: './child.component.css'
 })
 
-export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit,AfterViewChecked {
+export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() childName: string = ""; // pass parent component' value to hild component
 
@@ -51,6 +51,10 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentI
   ngAfterViewChecked(): void {
     // console.log("AfterViewChecked is triggered: ");
     console.log("AfterViewChecked is triggered: ", this.counter);
+  }
+
+  ngOnDestroy(): void {
+    console.log("OnDestroy is triggered: ");
   }
 
   incrementCounter() {
