@@ -23,6 +23,10 @@ export class ForComponent {
 
   fruits: string[] = ['Apple', 'Mango', 'Grapes', 'Banana', 'Cherry'];
 
+  nestedItems = [{category: 'Fruits', items: ['Apple', 'Orange', 'Banana']},
+                {category: 'Animals', items: ['Dog', 'Cat', 'Lion']}
+                ];
+
   addNewCustomer() {
     const customer: Customer = {
       id: this.count + 1,

@@ -153,5 +153,22 @@
 
 
 
-<!-- ___________________________________________________ -->
 
+<!-- ================================= nested for loop ===================================== -->
+
+<div *ngFor="let category of nestedItems">
+    <h1>{{category.category}}</h1>
+    <ul>
+        <li *ngFor="let item of category.items">{{item}}</li>
+    </ul>
+</div>
+
+
+@for(category of nestedItems;track category){
+<h1>{{category.category}}</h1>
+<ul>
+    @for(item of category.items;track item){
+    <li>{{item}}</li>
+    }
+</ul>
+}
