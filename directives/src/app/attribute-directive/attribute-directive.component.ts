@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './attribute-directive.component.css'
 })
 export class AttributeDirectiveComponent {
-  isActive: boolean = true;
+  isActive: boolean = false;
 
   get getActiveColor(): string {
     return this.isActive ? 'blue' : 'green'
