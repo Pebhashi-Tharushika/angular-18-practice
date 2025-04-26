@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { PostListComponent } from './post-list/post-list.component';
 import { UserComponent } from './user/user.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PostListComponent, /*UserComponent*/], // import PostListComponent
+  imports: [/*PostListComponent, UserComponent*/ UserCardComponent], // import UserCardComponent
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
