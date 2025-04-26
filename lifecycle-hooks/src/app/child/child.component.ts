@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-=======
-import { AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
->>>>>>> 3173189e340b806564565a8191a64ecec1fa3d4a
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -11,11 +7,8 @@ import { AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleC
   templateUrl: './child.component.html',
   styleUrl: './child.component.css'
 })
-<<<<<<< HEAD
-export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked {
-=======
-export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit {
->>>>>>> 3173189e340b806564565a8191a64ecec1fa3d4a
+
+export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit {
 
   @Input() childName: string = ""; // pass parent component' value to hild component
 
@@ -44,13 +37,14 @@ export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentI
     console.log("AfterContentInit is triggered: ");
   }
 
-<<<<<<< HEAD
   ngAfterContentChecked(): void {
     console.log("AfterContentChecked is triggered: ");
   }
 
-=======
->>>>>>> 3173189e340b806564565a8191a64ecec1fa3d4a
+  ngAfterViewInit(): void {
+    console.log("AfterViewInit is triggered: ");
+  }
+
   // incrementCounter() {
   //   this.counter++;
   // }
