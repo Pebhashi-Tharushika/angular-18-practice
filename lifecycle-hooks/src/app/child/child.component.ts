@@ -8,45 +8,47 @@ import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoChec
   styleUrl: './child.component.css'
 })
 
-export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit {
+export class ChildComponent /*implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit*/ {
 
-  @Input() childName: string = ""; // pass parent component' value to hild component
+  // @Input() childName: string = ""; // pass parent component' value to hild component
 
-  @ViewChild('paragraph') para !: ElementRef;
+  // @ViewChild('paragraph') para !: ElementRef;
 
   // counter: number = 0;
 
-  constructor() {
-    console.log("Constructor is triggered");
-    console.log(this.childName);
-  }
+  message: string = "This is child message";
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("OnChanges is triggered: ");
-    console.log(changes);
-  }
+  // constructor() {
+  //   console.log("Constructor is triggered");
+  //   console.log(this.childName);
+  // }
 
-  ngOnInit(): void {
-    console.log("OnInit is triggered: ");
-    console.log(this.childName);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log("OnChanges is triggered: ");
+  //   console.log(changes);
+  // }
 
-  ngDoCheck(): void {
-    console.log("DoCheck is triggered: ");
-  }
+  // ngOnInit(): void {
+  //   console.log("OnInit is triggered: ");
+  //   console.log(this.childName);
+  // }
 
-  ngAfterContentInit(): void {
-    console.log("AfterContentInit is triggered: ");
-  }
+  // ngDoCheck(): void {
+  //   console.log("DoCheck is triggered: ");
+  // }
 
-  ngAfterContentChecked(): void {
-    console.log("AfterContentChecked is triggered: ");
-  }
+  // ngAfterContentInit(): void {
+  //   console.log("AfterContentInit is triggered: ");
+  // }
 
-  ngAfterViewInit(): void {
-    console.log("AfterViewInit is triggered: ");
-    console.log('Paragraph Text: ', this.para.nativeElement.textContent);
-  }
+  // ngAfterContentChecked(): void {
+  //   console.log("AfterContentChecked is triggered: ");
+  // }
+
+  // ngAfterViewInit(): void {
+  //   console.log("AfterViewInit is triggered: ");
+  //   console.log('Paragraph Text: ', this.para.nativeElement.textContent);
+  // }
 
   // incrementCounter() {
   //   this.counter++;
