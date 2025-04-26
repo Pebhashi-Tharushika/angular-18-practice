@@ -66,13 +66,19 @@
 
 <!-- <h1 *ngIf="customers.length == 0">There are no any customers.</h1>
 <ul>
-    <li *ngFor="let customer of customers; let i = index">{{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}</li>
+    <li *ngFor="let customer of customers; let i = index">
+        {{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}
+        <button (click)="deleteCustomer(i)">Delete</button>
+    </li>
 </ul> -->
 
 
 <ul>
     @for( customer of customers; track $index; let i = $index){
-    <li>{{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}</li>
+    <li>
+        {{i+1}} - {{customer.id}} | {{customer.name}} | {{customer.email}}
+        <button (click)="deleteCustomer(i)">Delete</button>
+    </li>
     }
     @empty {
     <h1>There are no any users.</h1>
@@ -144,3 +150,8 @@
     <li [style.color]="isOdd ? 'purple' : 'green'">{{isOdd}} | {{fruit}}</li>
     }
 </ul>
+
+
+
+<!-- ___________________________________________________ -->
+

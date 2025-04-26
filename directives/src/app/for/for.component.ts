@@ -33,6 +33,10 @@ export class ForComponent {
     this.count++;
   }
 
+  deleteCustomer(index: number) {
+    this.customers.splice(index, 1);
+  }
+
 }
 
 interface User {
