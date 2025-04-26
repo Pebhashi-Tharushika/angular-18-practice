@@ -1,13 +1,30 @@
 <p>user-card works!</p>
 
-<!-- <ng-content></ng-content> -->
+
+<!-- ======= Single Content Projection ======= -->
+<ng-content></ng-content>
 
 <!-- <header><ng-content></ng-content></header> -->
 
-<div class="card">
+
+<!-- if multiple <ng-Content></ng-Content> exist in child component, pass HTML from a parent component into a child component's last <ng-content></ng-content>  -->
+
+<!-- <div class="card">
     <header><ng-content></ng-content></header>
     <div class="body">
         <ng-content></ng-content>
     </div>
     <footer><ng-content></ng-content></footer>
+</div> -->
+
+
+
+<!-- ======= Multiple Content Projection ======= -->
+<div class="card">
+    <header><ng-content select="[header]"></ng-content></header>
+    <main><ng-content select="[body]"></ng-content></main>
+    <footer><ng-content select="[footer]"></ng-content></footer>
 </div>
+
+
+
