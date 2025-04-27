@@ -58,3 +58,35 @@
 <h1>{{user.name}}</h1> <!-- Kamal -->
 
 <h1>{{user | json}}</h1> <!-- { "name": "Kamal", "age": 30 } -->
+
+
+
+
+<!-- ========================= Slice Pipe ========================== -->
+
+<h1>{{greeting}}</h1> <!-- Hello Angular World -->
+
+<h1>{{greeting | slice:6}}</h1> <!-- Angular World -->
+
+<h1>{{greeting | slice:6:13}}</h1> <!-- Angular -->
+
+<h1>{{ arr | slice:1:3 }} </h1> <!-- 20,30 -->
+
+
+
+<!-- Slicepipe is immutable -->
+
+<h1>{{"Wellcome" | slice : 0}}</h1> <!-- Wellcome -->
+
+<h1>{{[1, 2, 3, 4, 5] | slice : 0}}</h1> <!-- 1,2,3,4,5 -->
+
+
+<!-- Slicepipe handles blank values gracefully -->
+
+<h1>{{ null | slice:0:2 }} </h1> <!-- null -->
+
+<h1>{{ undefined | slice:0:2 }}</h1> <!-- undefined -->
+
+<h1>{{ '' | slice:0:2 }}</h1> <!-- "" -->
+
+<h1>{{ [] | slice:0:2 }}</h1> <!-- [] -->
