@@ -47,3 +47,14 @@
 <!-- ____________ Custom format options ___________ -->
 <h1>{{today | date:'yyyy-MMM-dd, E, hh:mm:ss a'}}</h1> <!-- 2025-Apr-22, Tue, 06:56:11 PM -->
 <h1>{{today | date:'EEEE, dd MMMM yyyy, HH:mm zzzz'}}</h1> <!-- Tuesday, 22 April 2025, 18:56 GMT+05:30 -->
+
+
+
+
+<!-- ===================== JSON Manipulation ====================== -->
+
+<h1>{{user}}</h1>  <!-- [object Object] -->
+
+<h1>{{user.name}}</h1> <!-- Kamal -->
+
+<h1>{{user | json}}</h1> <!-- { "name": "Kamal", "age": 30 } -->

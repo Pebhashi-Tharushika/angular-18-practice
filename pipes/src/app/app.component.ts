@@ -13,9 +13,15 @@ export class AppComponent {
 
   tax: number = 0.3261;
 
-  today : number = Date.now();
+  today: number = Date.now();
 
-  birthday : Date = new Date('05/15/1988'); // 'MM/dd/yyyy' or 'yyyy-MM-dd'
+  birthday: Date = new Date('05/15/1988'); // 'MM/dd/yyyy' or 'yyyy-MM-dd'
+
+  user: User = {
+    name: 'Nimal Gamage',
+    age: 47
+  }
+
 
 }
 
