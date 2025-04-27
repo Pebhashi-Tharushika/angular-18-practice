@@ -26,6 +26,8 @@ export class AppComponent {
 
   arr: number[] = [10, 20, 30, 40, 50];
 
+  startDate: Date = new Date(1880, 7, 19);
+
 }
 
 interface User {

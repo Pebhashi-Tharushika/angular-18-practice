@@ -90,3 +90,13 @@
 <h1>{{ '' | slice:0:2 }}</h1> <!-- "" -->
 
 <h1>{{ [] | slice:0:2 }}</h1> <!-- [] -->
+
+
+
+
+
+<!-- ========================= Chaining Pipe ========================== -->
+
+<h1>{{startDate | date | uppercase}}</h1> <!-- AUG 19, 1880 -->
+
+<h1>{{'Hello Angular World' | slice:6:13 | uppercase}}</h1>  <!-- ANGULAR -->
