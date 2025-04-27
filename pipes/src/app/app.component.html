@@ -37,3 +37,13 @@
 <h1>{{today | date}}</h1> <!-- Apr 22, 2025 -->
 
 <h1>{{birthday | date}}</h1> <!-- May 15, 1988 -->
+
+<!-- ________ Pre-defined format options ________ -->
+
+<h1>{{today | date:'medium'}}</h1> <!-- Apr 22, 2025, 6:56:11 PM -->
+<h1>{{today | date:'shortDate'}}</h1> <!-- 4/22/25 -->
+<h1>{{today | date:'fullTime'}}</h1> <!-- 6:56:11 PM GMT+05:30 -->
+
+<!-- ____________ Custom format options ___________ -->
+<h1>{{today | date:'yyyy-MMM-dd, E, hh:mm:ss a'}}</h1> <!-- 2025-Apr-22, Tue, 06:56:11 PM -->
+<h1>{{today | date:'EEEE, dd MMMM yyyy, HH:mm zzzz'}}</h1> <!-- Tuesday, 22 April 2025, 18:56 GMT+05:30 -->
