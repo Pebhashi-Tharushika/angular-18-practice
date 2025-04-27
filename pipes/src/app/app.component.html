@@ -53,7 +53,7 @@
 
 <!-- ===================== JSON Manipulation ====================== -->
 
-<h1>{{user}}</h1>  <!-- [object Object] -->
+<h1>{{user}}</h1> <!-- [object Object] -->
 
 <h1>{{user.name}}</h1> <!-- Kamal -->
 
@@ -99,4 +99,17 @@
 
 <h1>{{startDate | date | uppercase}}</h1> <!-- AUG 19, 1880 -->
 
-<h1>{{'Hello Angular World' | slice:6:13 | uppercase}}</h1>  <!-- ANGULAR -->
+<h1>{{'Hello Angular World' | slice:6:13 | uppercase}}</h1> <!-- ANGULAR -->
+
+
+
+
+<!-- ========================= Custom Pipe ========================== -->
+
+<h1>{{'Kamal' | shorten}}</h1>
+
+<h1>{{'Sam' | shorten:0}}</h1>
+
+<h1>{{'Chathuranga' | shorten:4}}</h1>
+
+<h1>{{'Nadeeshanika' | shorten:7}}</h1>
