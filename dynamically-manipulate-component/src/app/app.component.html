@@ -1,3 +1,19 @@
-<h1>Dynamically render component using *ngComponentOutlet</h1>
+<!-- ========== statically render component as HTML custom tag ========= -->
+<!-- <app-user></app-user> -->
 
-<div *ngComponentOutlet="loadUserComponent()"></div>
+
+
+<!-- ========== Dynamically render component using *ngComponentOutlet ========= -->
+
+<!-- <h1>*ngComponentOutlet</h1> -->
+
+<!-- <div *ngComponentOutlet="loadUserComponent()"></div> -->
+
+
+
+
+<!-- ========== Dynamically render component using ViewContainerRef ========= -->
+
+<h1>ViewContainerRef</h1>
+
+<button (click)="addComponent()">Add Component</button>

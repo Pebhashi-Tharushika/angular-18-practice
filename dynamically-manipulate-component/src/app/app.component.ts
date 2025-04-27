@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { UserComponent } from './user/user.component';
 import { NgComponentOutlet } from '@angular/common';
 
@@ -12,7 +12,13 @@ import { NgComponentOutlet } from '@angular/common';
 export class AppComponent {
   title = 'dynamically-manipulate-component';
 
-  loadUserComponent() {
-    return UserComponent;
+  constructor(private viewContainerRef: ViewContainerRef){}
+
+  addComponent(){
+    this.viewContainerRef.createComponent(UserComponent);
   }
+
+  // loadUserComponent() {
+  //   return UserComponent;
+  // }
 }
