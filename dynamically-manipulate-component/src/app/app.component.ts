@@ -18,6 +18,10 @@ export class AppComponent {
     this.viewContainerRef.createComponent(UserComponent);
   }
 
+  removeComponent(){
+    this.viewContainerRef.remove();
+  }
+
   // loadUserComponent() {
   //   return UserComponent;
   // }
