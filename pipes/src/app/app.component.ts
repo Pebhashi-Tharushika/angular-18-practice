@@ -15,6 +15,8 @@ export class AppComponent {
 
   today : number = Date.now();
 
+  birthday : Date = new Date('05/15/1988'); // 'MM/dd/yyyy' or 'yyyy-MM-dd'
+
 }
 
 interface User {
