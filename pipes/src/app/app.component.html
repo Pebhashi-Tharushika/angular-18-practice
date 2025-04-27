@@ -113,3 +113,16 @@
 <h1>{{'Chathuranga' | shorten:4}}</h1>
 
 <h1>{{'Nadeeshanika' | shorten:7}}</h1>
+
+
+
+
+<!-- ======================== Custom Filter Pipe ========================= -->
+
+<input type="text" [(ngModel)]="searchText">
+
+<button (click)="addUser()">Add User</button>
+
+@for(name of names | searchFilter:searchText; track $index){
+<h1>{{name}}</h1>
+}
