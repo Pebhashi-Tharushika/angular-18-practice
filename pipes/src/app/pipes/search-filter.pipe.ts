@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'searchFilter',
-  standalone: true
+  standalone: true,
+  pure: false
 })
 export class SearchFilterPipe implements PipeTransform {
 
