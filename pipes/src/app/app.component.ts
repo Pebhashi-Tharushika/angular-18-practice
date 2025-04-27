@@ -10,7 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pipes';
-  
+
+  tax: number = 0.3261;
+
+  today : number = Date.now();
+
 }
 
 interface User {
