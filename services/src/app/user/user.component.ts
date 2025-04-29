@@ -15,6 +15,10 @@ export class UserComponent {
 
   constructor() {
     this.myService = new MyService();
-    this.message = this.myService.message;
+    this.message = this.myService.getMessage;
+  }
+
+  updateMessage(){
+    this.message = this.myService.getMessage;
   }
 }

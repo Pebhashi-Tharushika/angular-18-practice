@@ -18,6 +18,11 @@ export class PostComponent {
 
   constructor() {
     this.myService = new MyService();
-    this.message = this.myService.message;
+    this.message = this.myService.getMessage;
+  }
+
+  updateMessage(){
+    this.myService.updateMessage("Hello from PostComponent");
+    this.message = this.myService.getMessage;
   }
 }

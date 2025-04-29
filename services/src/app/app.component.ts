@@ -26,6 +26,6 @@ export class AppComponent /*implements AfterViewInit*/ {
 
   constructor() {
     this.myService = new MyService();
-    this.message = this.myService.message;
+    this.message = this.myService.getMessage;
   }
 }

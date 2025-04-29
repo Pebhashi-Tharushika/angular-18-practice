@@ -9,6 +9,13 @@ export class MyService {
     console.log("MyService Constructor is called");
   }
 
-  message: string = "Hello World!";
+  private message: string = "Hello World!";
 
+  updateMessage(newMessage: string) {
+    this.message = newMessage;
+  }
+
+  get getMessage() {
+    return this.message
+  }
 }
