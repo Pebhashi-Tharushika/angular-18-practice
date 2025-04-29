@@ -11,10 +11,10 @@ import { MyService } from '../services/my-service.service'; //import MyService
 export class UserComponent {
   message: string = '';
 
-  myService: MyService
+  // myService: MyService
 
-  constructor() {
-    this.myService = new MyService();
+  constructor(private myService: MyService) { //Dependency injection
+    // this.myService = new MyService();
     this.message = this.myService.getMessage;
   }
 
