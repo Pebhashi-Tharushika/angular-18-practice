@@ -18,7 +18,7 @@ export class UserComponent {
     this.message = this.myService.getMessage;
   }
 
-  updateMessage(){
-    this.message = this.myService.getMessage;
-  }
+  // updateMessage(){
+  //   this.message = this.myService.getMessage;
+  // }
 }

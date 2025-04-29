@@ -12,17 +12,17 @@ export class PostComponent {
 
   // @Input() message: string = '';
 
-  message: string = '';
+  // message: string = '';
 
   // myService: MyService
 
-  constructor(private myService: MyService) { //Dependency injection
-    // this.myService = new MyService();
-    this.message = this.myService.getMessage;
-  }
+  // constructor(private myService: MyService) { //Dependency injection
+  //   // this.myService = new MyService();
+  //   this.message = this.myService.getMessage;
+  // }
 
-  updateMessage(){
-    this.myService.updateMessage("Hello from PostComponent");
-    this.message = this.myService.getMessage;
-  }
+  // updateMessage(){
+  //   this.myService.updateMessage("Hello from PostComponent");
+  //   this.message = this.myService.getMessage;
+  // }
 }

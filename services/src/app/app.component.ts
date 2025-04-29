@@ -14,7 +14,7 @@ export class AppComponent /*implements AfterViewInit*/ {
 
   title = 'services';
 
-  message: string = '';
+  // message: string = '';
 
   // @ViewChild(UserComponent) userComponent!: UserComponent;
 
@@ -24,8 +24,8 @@ export class AppComponent /*implements AfterViewInit*/ {
 
   // myService: MyService
 
-  constructor(private myService: MyService) { //Dependency injection
-    // this.myService = new MyService();
-    this.message = this.myService.getMessage;
-  }
+  // constructor(private myService: MyService) { //Dependency injection
+  //   // this.myService = new MyService();
+  //   this.message = this.myService.getMessage;
+  // }
 }
