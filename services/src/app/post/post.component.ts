@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MyService } from '../services/my-service.service'; //import MyService
 
 @Component({
   selector: 'app-post',
@@ -9,5 +10,14 @@ import { Component, Input } from '@angular/core';
 })
 export class PostComponent {
 
-  @Input() message: string = '';
+  // @Input() message: string = '';
+
+  message: string = '';
+
+  myService: MyService
+
+  constructor() {
+    this.myService = new MyService();
+    this.message = this.myService.message;
+  }
 }

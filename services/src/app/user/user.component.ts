@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyService } from '../services/my-service.service'; //import MyService
 
 @Component({
   selector: 'app-user',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  message: string = "Hello World!";
+  message: string = '';
+
+  myService: MyService
+
+  constructor() {
+    this.myService = new MyService();
+    this.message = this.myService.message;
+  }
 }

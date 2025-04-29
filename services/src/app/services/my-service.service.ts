@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MyServiceService {
+export class MyService {
 
-  constructor() { }
+  message: string = "Hello World!";
+
 }
