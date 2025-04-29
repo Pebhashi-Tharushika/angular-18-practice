@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class MyService {
 
+  constructor() {
+    console.log("MyService Constructor is called");
+  }
+
   message: string = "Hello World!";
 
 }
