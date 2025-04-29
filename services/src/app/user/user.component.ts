@@ -21,4 +21,9 @@ export class UserComponent {
   // updateMessage(){
   //   this.message = this.myService.getMessage;
   // }
+
+  updateMessage() {
+    this.myService.updateMessage("Hello from UserComponent");
+    this.message = this.myService.getMessage;
+  }
 }

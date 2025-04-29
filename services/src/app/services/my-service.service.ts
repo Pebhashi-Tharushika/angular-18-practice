@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { LoggingService } from './logging.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyService {
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     console.log("MyService Constructor is called");
   }
 
@@ -13,6 +14,7 @@ export class MyService {
 
   updateMessage(newMessage: string) {
     this.message = newMessage;
+    this.loggingService.logData("Message Updated: " + this.message);
   }
 
   get getMessage() {
