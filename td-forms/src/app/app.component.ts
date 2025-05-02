@@ -17,5 +17,9 @@ export class AppComponent {
     console.log(event.target[0].value);
     console.log(event.target[1].value);
     console.log(event.target[2].value);
+
+    console.log(event.target.name.value);
+    console.log(event.target.email.value);
+    console.log(event.target.address.value);
   }
 }
