@@ -105,7 +105,7 @@
 
 <!-- minlength  and maxlength-->
 
-<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <h2>User Details</h2>
 
   <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
@@ -122,6 +122,88 @@
     </div>
 
     <input type="text" class="form-control mb-4" placeholder="Enter your email" name="email" ngModel>
+
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
+
+    <button class="btn btn-primary w-100">Submit</button>
+  </form>
+</div> -->
+
+
+<!-- email validation - EmailValidator in angular -->
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
+
+    <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
+      #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" minlength="3" maxlength="10">
+
+    <div class="mb-4 text-danger">
+      @if(name.hasError('required') && name.touched){
+      Name is required
+      }
+      @if(name.hasError('minlength') && name.touched){
+        Name should have 3 characters at least
+      }
+    </div>
+
+    <input type="text" class="form-control" placeholder="Enter your email" name="email" ngModel 
+    #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" minlength="3" email>
+
+    <div class="mb-4 text-danger">
+      @if(email.hasError('required') && email.touched){
+        Email is required
+      }
+      @if(email.hasError('minlength') && email.touched){
+        Email should have 3 characters at least
+      }
+      @if(email.hasError('email') && email.touched){
+        Email is invalid
+      }
+    </div>
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
+
+    <button class="btn btn-primary w-100">Submit</button>
+  </form>
+</div> -->
+
+
+
+<!-- pattern validation -->
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
+
+    <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
+      #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" minlength="3" maxlength="10">
+
+    <div class="mb-4 text-danger">
+      @if(name.hasError('required') && name.touched){
+      Name is required
+      }
+      @if(name.hasError('minlength') && name.touched){
+        Name should have 3 characters at least
+      }
+    </div>
+
+    <input type="text" class="form-control" placeholder="Enter your email" name="email" ngModel 
+    #email="ngModel" required [class.is-invalid]="email.invalid && email.touched" minlength="3" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+
+    <div class="mb-4 text-danger">
+      @if(email.hasError('required') && email.touched){
+        Email is required
+      }
+      @if(email.hasError('minlength') && email.touched){
+        Email should have 3 characters at least
+      }
+      @if(email.hasError('pattern') && email.touched){
+        Email is invalid
+      }
+    </div>
 
     <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
 
