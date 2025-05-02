@@ -55,12 +55,37 @@
 
 
 <!-- required -->
-<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+
+<!-- using angular classes (ng-valid / ng-invalid / ng-touhed / ng-untouched) -->
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <h2>User Details</h2>
 
   <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
     <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
       #name="ngModel" required [class.ng-invalid]="name.invalid && name.touched">
+
+    <div class="mb-4 text-danger">
+      @if(name.invalid && name.touched){
+      Name is required
+      }
+    </div>
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your email" name="email" ngModel>
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
+
+    <button class="btn btn-primary w-100">Submit</button>
+  </form>
+</div> -->
+
+
+<!-- Bootstrap class (is-invalid) -->
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
+    <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
+      #name="ngModel" required [class.is-invalid]="name.invalid && name.touched">
 
     <div class="mb-4 text-danger">
       @if(name.invalid && name.touched){
