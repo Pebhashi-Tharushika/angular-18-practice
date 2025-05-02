@@ -18,10 +18,30 @@
 
 <!-- Template Driven Forms -->
 
-<div class="container d-flex flex-column align-items-center justify-content-center vh-100 bg-secondary">
+
+<!-- passing template variable event binding function -->
+
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100 bg-secondary">
   <h2>User Details</h2>
 
   <form class="w-50 mt-4" (submit)="onSubmit(f)" #f="ngForm">
+    <input type="text" class="form-control mb-4" placeholder="Enter your name" name="name" ngModel>
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your email" name="email" ngModel>
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
+
+    <button class="btn btn-primary w-100">Submit</button>
+  </form>
+</div> -->
+
+
+<!-- using template variable for @ViewChild() decorator -->
+
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100 bg-secondary">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
     <input type="text" class="form-control mb-4" placeholder="Enter your name" name="name" ngModel>
 
     <input type="text" class="form-control mb-4" placeholder="Enter your email" name="email" ngModel>
