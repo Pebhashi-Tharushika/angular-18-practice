@@ -44,7 +44,7 @@
   <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
     <input type="text" class="form-control mb-4" placeholder="Enter your name" name="name" ngModel>
 
-    <input type="text" class="form-control mb-4" placeholder="Enter your email" name="email" ngModel>
+    <input type="text" class="form-control mb-4" (keyup)="keyUp()" placeholder="Enter your email" name="email" ngModel>
 
     <input type="text" class="form-control mb-4" placeholder="Enter your address" name="address" ngModel>
 

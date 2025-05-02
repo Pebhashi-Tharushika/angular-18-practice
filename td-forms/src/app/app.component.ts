@@ -14,6 +14,11 @@ export class AppComponent {
 
   title = 'td-forms';
 
+  keyUp(){
+    console.log("key up event");
+    console.log(this.form);
+  }
+
   onSubmit() {
     console.group("Form submitted");
 
