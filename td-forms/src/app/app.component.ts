@@ -14,7 +14,11 @@ export class AppComponent {
   onSubmit(event: any) {
     // event.preventDefault();
     console.group("Form submitted");
-    // console.log(event);
+    console.log(event); //ngModel object
+    console.log(event.value.name);
+    console.log(event.value.email);
+    console.log(event.value.address);
+    
     // console.log(event.target[0].value);
     // console.log(event.target[1].value);
     // console.log(event.target[2].value);
