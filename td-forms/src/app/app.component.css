@@ -1,3 +1,7 @@
-/* input.ng-invalid {
+input.ng-invalid {
     border: solid 2px red;
-} */
+}
+
+textarea.ng-invalid {
+    border: solid 2px red;
+}
