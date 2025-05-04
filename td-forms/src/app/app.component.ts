@@ -14,27 +14,31 @@ export class AppComponent {
 
   title = 'td-forms';
 
-  setData(){
-    // this.form.form.setValue({
+  resetData() {
+    this.form.resetForm();
+  }
+
+  setData() {
+    this.form.form.setValue({
+      address: '123 Main St',
+      gender: 'Male',
+      userData: {
+        email: 'saman@gmail.com',
+        name: 'Saman'
+      }
+    });
+
+    // this.form.form.patchValue({
     //   address: '123 Main St',
     //   gender:'Male',
     //   userData:{
-    //     email:'Saman@gmail.com',
     //     name:'Saman'
     //   }
     // });
-
-    this.form.form.patchValue({
-      address: '123 Main St',
-      gender:'Male',
-      userData:{
-        name:'Saman'
-      }
-    });
   }
 
 
-  keyUp(name:any){
+  keyUp(name: any) {
 
   }
 
