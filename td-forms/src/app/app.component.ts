@@ -14,6 +14,18 @@ export class AppComponent {
 
   title = 'td-forms';
 
+  setData(){
+    this.form.form.setValue({
+      address: '123 Main St',
+      gender:'Male',
+      userData:{
+        email:'Saman@gmail.com',
+        name:'Saman'
+      }
+    });
+  }
+
+
   keyUp(name:any){
 
   }
