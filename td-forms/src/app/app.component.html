@@ -214,8 +214,8 @@
 
 
 
-<!-- ngSaumit, disabled and select  -->
-<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+<!-- ngSaumit, disabled and select, option  -->
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <h2>User Details</h2>
 
   <form class="w-50 mt-4" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -263,6 +263,70 @@
     </select>
 
     <button [disabled]="f.invalid" class="btn btn-primary w-100">Submit</button>
-    <!-- property binding -->
+  </form>
+</div> -->
+
+
+
+
+
+
+<!-- ngModelGroup -->
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" (ngSubmit)="onSubmit()" #f="ngForm">
+
+    @if(userData.invalid && userData.touched){
+      <div class="mb-4 text-danger">
+        User data is invalid
+      </div>
+    }
+    <div ngModelGroup="userData" #userData="ngModelGroup">
+      <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
+        #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" minlength="3" maxlength="10">
+
+      <div class="mb-4 text-danger">
+        @if(name.hasError('required') && name.touched){
+        Name is required
+        }
+        @if(name.hasError('minlength') && name.touched){
+        Name should have 3 characters at least
+        }
+      </div>
+
+      <input type="text" class="form-control" placeholder="Enter your email" name="email" ngModel #email="ngModel"
+        required [class.is-invalid]="email.invalid && email.touched" minlength="3"
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+
+      <div class="mb-4 text-danger">
+        @if(email.hasError('required') && email.touched){
+        Email is required
+        }
+        @if(email.hasError('minlength') && email.touched){
+        Email should have 3 characters at least
+        }
+        @if(email.hasError('pattern') && email.touched){
+        Email is invalid
+        }
+      </div>
+
+    </div>
+
+    <textarea type="text" class="form-control" placeholder="Enter your address" name="address" ngModel
+      #address="ngModel" required [class.is-invalid]="address.invalid && address.touched"></textarea>
+
+    <div class="mb-4 text-danger">
+      @if(address.hasError('required') && address.touched){
+      Address is required
+      }
+    </div>
+
+    <select class="form-select mb-4" aria-label="Default select example" name="gender" ngModel="Male" #gender="ngModel">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <button [disabled]="f.invalid" class="btn btn-primary w-100">Submit</button>
   </form>
 </div>
