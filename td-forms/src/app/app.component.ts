@@ -22,9 +22,10 @@ export class AppComponent {
     console.group("Form submitted");
 
     console.log(this.form);
-    console.log(this.form.value.name);
-    console.log(this.form.value.email);
-    console.log(this.form.value.address);
+    console.log(this.form.value); //ngModel object
+    // console.log(this.form.value.name);
+    // console.log(this.form.value.email);
+    // console.log(this.form.value.address);
   }
 
   // onSubmit(event: any) {

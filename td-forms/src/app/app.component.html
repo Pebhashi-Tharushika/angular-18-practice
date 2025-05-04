@@ -214,14 +214,14 @@
 
 
 
-
+<!-- ngSaumit, disabled and select  -->
 <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <h2>User Details</h2>
 
-  <form class="w-50 mt-4" (submit)="onSubmit()" #f="ngForm">
+  <form class="w-50 mt-4" (ngSubmit)="onSubmit()" #f="ngForm">
 
     <input type="text" class="form-control" placeholder="Enter your name" name="name" ngModel (keyup)="keyUp(name)"
-      #name="ngModel" required [class.ng-invalid]="name.invalid && name.touched" minlength="3" maxlength="10">
+      #name="ngModel" required [class.is-invalid]="name.invalid && name.touched" minlength="3" maxlength="10">
 
     <div class="mb-4 text-danger">
       @if(name.hasError('required') && name.touched){
@@ -233,7 +233,7 @@
     </div>
 
     <input type="text" class="form-control" placeholder="Enter your email" name="email" ngModel #email="ngModel"
-      required [class.ng-invalid]="email.invalid && email.touched" minlength="3"
+      required [class.is-invalid]="email.invalid && email.touched" minlength="3"
       pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
 
     <div class="mb-4 text-danger">
@@ -249,7 +249,7 @@
     </div>
 
     <textarea type="text" class="form-control" placeholder="Enter your address" name="address" ngModel
-      #address="ngModel" required [class.ng-invalid]="address.invalid && address.touched"></textarea>
+      #address="ngModel" required [class.is-invalid]="address.invalid && address.touched"></textarea>
 
     <div class="mb-4 text-danger">
       @if(address.hasError('required') && address.touched){
@@ -257,6 +257,12 @@
       }
     </div>
 
-    <button class="btn btn-primary w-100">Submit</button>
+    <select class="form-select mb-4" aria-label="Default select example" name="gender" ngModel="Male" #gender="ngModel">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <button [disabled]="f.invalid" class="btn btn-primary w-100">Submit</button>
+    <!-- property binding -->
   </form>
 </div>
