@@ -5,8 +5,16 @@
 
     <input type="text" class="form-control" placeholder="Enter your name" formControlName="username">
     <div class="mb-4 text-danger">
-      @if(signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched){
+      @if(signUpForm.get('username')?.hasError('required') && signUpForm.get('username')?.touched){
       Username is required
+      }
+
+      @if(signUpForm.get('username')?.hasError('minlength') && signUpForm.get('username')?.touched){
+      Username must be at least 3 characters long
+      }
+
+      @if(signUpForm.get('username')?.hasError('maxlength') && signUpForm.get('username')?.touched){
+      Username must be at most 10 characters long
       }
     </div>
 
