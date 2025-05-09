@@ -1,0 +1,15 @@
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your name" formControlName="username">
+
+    <input type="text" class="form-control mb-4" placeholder="Enter your email" formControlName="email">
+
+    <textarea type="text" class="form-control mb-4" placeholder="Enter your address" formControlName="address"></textarea>
+
+    <button class="btn btn-primary w-100" type="submit">Submit</button>
+
+  </form>
+</div>
