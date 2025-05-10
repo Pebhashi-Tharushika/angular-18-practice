@@ -14,32 +14,43 @@ export class AppComponent implements OnInit {
 
   signUpForm !: FormGroup;
 
+  // ngOnInit(): void {
+  //   this.signUpForm = new FormGroup({
+  //     'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+  //     'email': new FormControl(null, [Validators.required, Validators.email]),
+  //     'address': new FormControl(null,Validators.required),
+  //     'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')])
+  //   });
+  // }
+
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'address': new FormControl(null,Validators.required),
+      'userData': new FormGroup({
+        'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+        'email': new FormControl(null, [Validators.required, Validators.email])
+      }),
+      'address': new FormControl(null, Validators.required),
       'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')])
     });
   }
 
   onSubmit() {
-    console.log(this.signUpForm);
+    console.log(this.signUpForm.value);
   }
 
   get isInvalidUsername() {
-    return this.signUpForm.get('username')?.invalid && this.signUpForm.get('username')?.touched;
+    return this.signUpForm.get('userData.username')?.invalid && this.signUpForm.get('userData.username')?.touched;
   }
 
   get isInvalidEmail() {
-    return this.signUpForm.get('email')?.invalid && this.signUpForm.get('email')?.touched;
+    return this.signUpForm.get('userData.email')?.invalid && this.signUpForm.get('userData.email')?.touched;
   }
 
-  get isInvalidAddress(){
+  get isInvalidAddress() {
     return this.signUpForm.get('address')?.invalid && this.signUpForm.get('address')?.touched;
   }
 
-  get isInvalidPhone(){
+  get isInvalidPhone() {
     return this.signUpForm.get('phone')?.invalid && this.signUpForm.get('phone')?.touched;
   }
 }
