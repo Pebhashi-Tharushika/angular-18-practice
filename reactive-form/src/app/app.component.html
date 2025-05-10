@@ -59,6 +59,85 @@
 </div> -->
 
 
+
+
+<!-- ======================================== Nested FormGroup =================================== -->
+
+<!-- <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <h2>User Details</h2>
+
+  <form class="w-50 mt-4" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('userData')?.invalid && signUpForm.get('userData')?.touched){
+      User Data is Invalid
+      }
+    </div>
+
+    <div formGroupName="userData">
+      <input type="text" class="form-control" placeholder="Enter your name" formControlName="username"
+        [class.is-invalid]="isInvalidUsername">
+      <div class="mb-4 text-danger">
+        @if(signUpForm.get('userData.username')?.hasError('required') && signUpForm.get('userData.username')?.touched){
+        Username is required
+        }
+
+        @if(signUpForm.get('userData.username')?.hasError('minlength') && signUpForm.get('userData.username')?.touched){
+        Username must be at least 3 characters long
+        }
+
+        @if(signUpForm.get('userData.username')?.hasError('maxlength') && signUpForm.get('userData.username')?.touched){
+        Username must be at most 10 characters long
+        }
+      </div>
+
+
+      <input type="text" class="form-control" placeholder="Enter your email" formControlName="email"
+        [class.is-invalid]="isInvalidEmail">
+      <div class="mb-4 text-danger">
+        @if(signUpForm.get('userData.email')?.hasError('required') && signUpForm.get('userData.email')?.touched){
+        Email is required
+        }
+
+        @if(signUpForm.get('userData.email')?.hasError('email') && signUpForm.get('userData.email')?.touched){
+        Email is invalid
+        }
+      </div>
+    </div>
+
+
+
+    <textarea type="text" class="form-control" placeholder="Enter your address" formControlName="address"
+      [class.is-invalid]="isInvalidAddress"></textarea>
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('address')?.hasError('required') && signUpForm.get('address')?.touched){
+      Address is required
+      }
+    </div>
+
+    <input type="text" class="form-control" placeholder="Enter your phone number" formControlName="phone"
+      [class.is-invalid]="isInvalidPhone">
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('phone')?.hasError('required') && signUpForm.get('phone')?.touched){
+      Phone number is required
+      }
+
+      @if(signUpForm.get('phone')?.hasError('pattern') && signUpForm.get('phone')?.touched){
+      Phone number must be xxx-xxxxxxx
+      }
+    </div>
+
+    <button class="btn btn-primary w-100" type="submit">Submit</button>
+
+  </form>
+</div> -->
+
+
+
+
+
+<!-- ======================================== Dynamically add FormControls =================================== -->
+
 <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <h2>User Details</h2>
 
@@ -122,6 +201,21 @@
       Phone number must be xxx-xxxxxxx
       }
     </div>
+
+    <button class="btn btn-success mb-4" type="button" (click)="OnAddHobby()">Add Hobby</button>
+
+    <div formArrayName="hobbies">
+      @for(hobby of hobbiesControls; track $index){
+      <input type="text" class="form-control" placeholder="Enter your hobby" [formControlName]="$index"
+        [class.is-invalid]="isInvalidHobby($index)">
+      <div class="mb-4 text-danger">
+        @if(hobbiesControls[$index].hasError('required') && hobbiesControls[$index].touched){
+        Hobby is required
+        }
+      </div>
+      }
+    </div>
+
 
     <button class="btn btn-primary w-100" type="submit">Submit</button>
 

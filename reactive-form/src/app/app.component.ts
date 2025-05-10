@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
         'email': new FormControl(null, [Validators.required, Validators.email])
       }),
       'address': new FormControl(null, Validators.required),
-      'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')])
+      'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]),
+      'hobbies': new FormArray([])
     });
   }
 
@@ -52,5 +53,18 @@ export class AppComponent implements OnInit {
 
   get isInvalidPhone() {
     return this.signUpForm.get('phone')?.invalid && this.signUpForm.get('phone')?.touched;
+  }
+
+  OnAddHobby() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.signUpForm.get('hobbies'))?.push(control);
+  }
+
+  get hobbiesControls() {
+    return (<FormArray>this.signUpForm.get('hobbies')).controls;
+  }
+
+  isInvalidHobby(index: number) {
+    return (<FormArray>this.signUpForm.get('hobbies')).controls[index].invalid && (<FormArray>this.signUpForm.get('hobbies')).controls[index].touched;
   }
 }
