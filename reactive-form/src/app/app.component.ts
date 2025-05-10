@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
       'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-      'email': new FormControl(null),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
       'address': new FormControl(null),
     });
   }
@@ -28,5 +28,9 @@ export class AppComponent implements OnInit {
 
   get isInvalidUsername(){
     return this.signUpForm.get('username')?.invalid && this.signUpForm.get('username')?.touched;
+  }
+
+get isInvalidEmail(){
+    return this.signUpForm.get('email')?.invalid && this.signUpForm.get('email')?.touched;
   }
 }

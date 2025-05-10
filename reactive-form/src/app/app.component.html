@@ -19,7 +19,18 @@
       }
     </div>
 
-    <input type="text" class="form-control mb-4" placeholder="Enter your email" formControlName="email">
+
+    <input type="text" class="form-control" placeholder="Enter your email" formControlName="email" [class.is-invalid]="isInvalidEmail">
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched){
+      Email is required
+      }
+
+      @if(signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched){
+      Invalid email
+      }
+    </div>
+
 
     <textarea type="text" class="form-control mb-4" placeholder="Enter your address"
       formControlName="address"></textarea>
