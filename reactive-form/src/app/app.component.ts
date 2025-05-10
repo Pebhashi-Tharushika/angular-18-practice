@@ -9,7 +9,7 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  
+
   title = 'reactive-form';
 
   signUpForm !: FormGroup;
@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
     this.signUpForm = new FormGroup({
       'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'address': new FormControl(null),
+      'address': new FormControl(null,Validators.required),
+      'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')])
     });
   }
 
@@ -26,11 +27,19 @@ export class AppComponent implements OnInit {
     console.log(this.signUpForm);
   }
 
-  get isInvalidUsername(){
+  get isInvalidUsername() {
     return this.signUpForm.get('username')?.invalid && this.signUpForm.get('username')?.touched;
   }
 
-get isInvalidEmail(){
+  get isInvalidEmail() {
     return this.signUpForm.get('email')?.invalid && this.signUpForm.get('email')?.touched;
+  }
+
+  get isInvalidAddress(){
+    return this.signUpForm.get('address')?.invalid && this.signUpForm.get('address')?.touched;
+  }
+
+  get isInvalidPhone(){
+    return this.signUpForm.get('phone')?.invalid && this.signUpForm.get('phone')?.touched;
   }
 }
