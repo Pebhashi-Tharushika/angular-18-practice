@@ -64,6 +64,12 @@
 
   <form class="w-50 mt-4" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
 
+    <div class="mb-4 text-danger">
+      @if(signUpForm.get('userData')?.invalid && signUpForm.get('userData')?.touched){
+      User Data is Invalid
+      }
+    </div>
+
     <div formGroupName="userData">
       <input type="text" class="form-control" placeholder="Enter your name" formControlName="username"
         [class.is-invalid]="isInvalidUsername">

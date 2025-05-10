@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.signUpForm.value);
+    console.log(this.signUpForm);
   }
 
   get isInvalidUsername() {
