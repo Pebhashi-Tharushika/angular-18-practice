@@ -25,4 +25,8 @@ export class AppComponent implements OnInit {
   onSubmit() {
     console.log(this.signUpForm);
   }
+
+  get isInvalidUsername(){
+    return this.signUpForm.get('username')?.invalid && this.signUpForm.get('username')?.touched;
+  }
 }

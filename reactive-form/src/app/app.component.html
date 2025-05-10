@@ -4,7 +4,7 @@
   <form class="w-50 mt-4" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
 
     <input type="text" class="form-control" placeholder="Enter your name" formControlName="username"
-    [class.is-invalid]="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+    [class.is-invalid]="isInvalidUsername">
     <div class="mb-4 text-danger">
       @if(signUpForm.get('username')?.hasError('required') && signUpForm.get('username')?.touched){
       Username is required
