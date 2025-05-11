@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,23 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray } fr
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent /* implements OnInit */{
 
   title = 'reactive-form';
 
   signUpForm !: FormGroup;
+
+  constructor(private fb:FormBuilder) { 
+    this.signUpForm = this.fb.group({
+      'userData': this.fb.group({
+        'username': ['Tom', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+        'email': this.fb.control(null, [Validators.required, Validators.email])
+      }),
+      'address': [null, Validators.required],
+      'phone': [null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]],
+      'hobbies': this.fb.array([])
+    });
+  }
 
   // ngOnInit(): void {
   //   this.signUpForm = new FormGroup({
@@ -23,17 +35,17 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
-  ngOnInit(): void {
-    this.signUpForm = new FormGroup({
-      'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-        'email': new FormControl(null, [Validators.required, Validators.email])
-      }),
-      'address': new FormControl(null, Validators.required),
-      'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]),
-      'hobbies': new FormArray([])
-    });
-  }
+  // ngOnInit(): void {
+  //   this.signUpForm = new FormGroup({
+  //     'userData': new FormGroup({
+  //       'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+  //       'email': new FormControl(null, [Validators.required, Validators.email])
+  //     }),
+  //     'address': new FormControl(null, Validators.required),
+  //     'phone': new FormControl(null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]),
+  //     'hobbies': new FormArray([])
+  //   });
+  // }
 
   onSubmit() {
     console.log(this.signUpForm);
