@@ -8,16 +8,18 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray, For
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent /* implements OnInit */{
+export class AppComponent /* implements OnInit */ {
 
   title = 'reactive-form';
 
   signUpForm !: FormGroup;
 
-  constructor(private fb:FormBuilder) { 
+  restrictedNames = ['admin', 'manager'];
+
+  constructor(private fb: FormBuilder) {
     this.signUpForm = this.fb.group({
       'userData': this.fb.group({
-        'username': ['Tom', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+        'username': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10),this.isRestrictedName.bind(this)]],
         'email': this.fb.control(null, [Validators.required, Validators.email])
       }),
       'address': [null, Validators.required],
@@ -78,5 +80,12 @@ export class AppComponent /* implements OnInit */{
 
   isInvalidHobby(index: number) {
     return (<FormArray>this.signUpForm.get('hobbies')).controls[index].invalid && (<FormArray>this.signUpForm.get('hobbies')).controls[index].touched;
+  }
+
+  isRestrictedName(control: FormControl): { [s: string]: boolean } | null {
+    if (this.restrictedNames.indexOf(control.value?.toLowerCase()) !== -1) {
+      return { 'restrictedName': true };
+    }
+    return null;
   }
 }
