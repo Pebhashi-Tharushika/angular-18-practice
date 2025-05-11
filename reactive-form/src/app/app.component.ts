@@ -60,6 +60,27 @@ export class AppComponent /* implements OnInit */ {
       console.log('phone statusChanges: ', status);
     }
     );
+
+
+    /* -------------- setValue vs patchValue ------------- */
+
+    // this.signUpForm.setValue({
+    //   userData: {
+    //     username: 'Amal',
+    //     email: 'amal@gmail.com'
+    //   },
+    //   address: 'Colombo',
+    //   phone: '077-1234567',
+    //   hobbies: []
+    // });
+
+    this.signUpForm.patchValue({
+      userData: {   
+        username: 'Amal'
+      },
+      address: 'Colombo',
+      phone: '077-1234567'
+    });
   }
 
   // ngOnInit(): void {
