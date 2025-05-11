@@ -32,7 +32,7 @@ export class AppComponent /* implements OnInit */ {
 
 
     /* ------------ EventEmitter - valueChanges ------------ */
-    
+
     // for entire form
     this.signUpForm.valueChanges.subscribe((value) => {
       console.log('valueChanges: ', value);
@@ -48,7 +48,7 @@ export class AppComponent /* implements OnInit */ {
 
 
     /* -------------- EventEmitter - statusChanges ------------- */
-    
+
     // for entire form
     this.signUpForm.statusChanges.subscribe((status) => {
       console.log('statusChanges: ', status);
@@ -75,7 +75,7 @@ export class AppComponent /* implements OnInit */ {
     // });
 
     this.signUpForm.patchValue({
-      userData: {   
+      userData: {
         username: 'Amal'
       },
       address: 'Colombo',
@@ -158,5 +158,10 @@ export class AppComponent /* implements OnInit */ {
       }, 2000);
     });
     return promise;
+  }
+
+  //reset form data
+  resetData() {
+    this.signUpForm.reset();
   }
 }
