@@ -29,6 +29,37 @@ export class AppComponent /* implements OnInit */ {
       'phone': [null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]],
       'hobbies': this.fb.array([])
     });
+
+
+    /* ------------ EventEmitter - valueChanges ------------ */
+    
+    // for entire form
+    this.signUpForm.valueChanges.subscribe((value) => {
+      console.log('valueChanges: ', value);
+    }
+    );
+
+    // only for username
+    this.signUpForm.get('userData.username')?.valueChanges.subscribe((value) => {
+      console.log('username valueChanges: ', value);
+    }
+    );
+
+
+
+    /* -------------- EventEmitter - statusChanges ------------- */
+    
+    // for entire form
+    this.signUpForm.statusChanges.subscribe((status) => {
+      console.log('statusChanges: ', status);
+    }
+    );
+
+    // only for phone
+    this.signUpForm.get('phone')?.statusChanges.subscribe((status) => {
+      console.log('phone statusChanges: ', status);
+    }
+    );
   }
 
   // ngOnInit(): void {
