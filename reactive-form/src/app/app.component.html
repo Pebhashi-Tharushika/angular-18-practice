@@ -269,6 +269,10 @@
         @if(signUpForm.get('userData.email')?.hasError('email') && signUpForm.get('userData.email')?.touched){
         Email is invalid
         }
+
+        @if(signUpForm.get('userData.email')?.hasError('restrictedEmail') && signUpForm.get('userData.email')?.touched){
+        This Email is not allowed
+        }
       </div>
     </div>
 

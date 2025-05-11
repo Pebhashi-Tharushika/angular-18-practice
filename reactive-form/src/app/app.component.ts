@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormArray, FormBuilder, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +19,11 @@ export class AppComponent /* implements OnInit */ {
   constructor(private fb: FormBuilder) {
     this.signUpForm = this.fb.group({
       'userData': this.fb.group({
-        'username': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10),this.isRestrictedName.bind(this)]],
-        'email': this.fb.control(null, [Validators.required, Validators.email])
+        // we used 'this' keyword to access the class properties in the sync validator
+        // so we need to use bind(this) to bind the 'this' keyword to the current instance of the class
+        'username': [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10), this.isRestrictedName.bind(this)]],
+        // no need to use bind(this) because async validator hasn't used the 'this' keyword to refer the current instance of the class
+        'email': [null, [Validators.required, Validators.email], this.isRestrictedEmails]
       }),
       'address': [null, Validators.required],
       'phone': [null, [Validators.required, Validators.pattern('^\\d{3}-\\d{7}$')]],
@@ -82,10 +85,26 @@ export class AppComponent /* implements OnInit */ {
     return (<FormArray>this.signUpForm.get('hobbies')).controls[index].invalid && (<FormArray>this.signUpForm.get('hobbies')).controls[index].touched;
   }
 
+  // sync validator
   isRestrictedName(control: FormControl): { [s: string]: boolean } | null {
     if (this.restrictedNames.indexOf(control.value?.toLowerCase()) !== -1) {
       return { 'restrictedName': true };
     }
     return null;
+  }
+
+  // async validator
+  isRestrictedEmails(control: FormControl): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      // Imagine a backend call here. So we need to use setTimeout to simulate a delay
+      setTimeout(() => {
+        if (control.value === 'admin@gmail.com') {
+          resolve({ 'restrictedEmail': true });
+        } else {
+          resolve(null);
+        }
+      }, 2000);
+    });
+    return promise;
   }
 }
