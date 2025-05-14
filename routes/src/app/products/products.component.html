@@ -3,7 +3,8 @@
     <div class="col-md-4">
         <ul class="nav flex-column nav-pills">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/product',1,'product1']" [queryParamsHandling]="'preserve'"
+                <a class="nav-link" [routerLink]="['/product',1,'product1']" [queryParams]="{param3:3,param4:4}"
+                [queryParamsHandling]="'merge'"
                 routerLinkActive="active">Product 1</a>
             </li>
             <li class="nav-item">
