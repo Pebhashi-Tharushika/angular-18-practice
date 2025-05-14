@@ -1,11 +1,12 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [JsonPipe], // import JsonPipe to use in the template
+  // Import RouterLink for navigation & Import JsonPipe to display JSON data in the template
+  imports: [JsonPipe, RouterLink], 
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
