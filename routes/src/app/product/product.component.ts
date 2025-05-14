@@ -22,21 +22,33 @@ export class ProductComponent implements OnInit {
     //   name: this.activatedRoute.snapshot.params['name']
     // }
 
-    this.activatedRoute.params.subscribe((data: Params) => {
-      this.product = {
-        id: data['id'],
-        name: data['name']
-      }
+    // this.activatedRoute.params.subscribe((data: Params) => {
+    //   this.product = {
+    //     id: data['id'],
+    //     name: data['name']
+    //   }
+    // });
+
+    // console.log(this.activatedRoute.snapshot.params);
+    // console.log(this.activatedRoute.snapshot.queryParams);
+    // console.log(this.activatedRoute.snapshot.fragment);
+
+    this.activatedRoute.queryParams.subscribe((data: Params) => {
+      console.log(data);
     });
 
-    console.log(this.activatedRoute.snapshot.params);
-    console.log(this.activatedRoute.snapshot.queryParams);
-    console.log(this.activatedRoute.snapshot.fragment);
+    this.activatedRoute.queryParams.subscribe((data) => {
+      console.log(data);
+    });
+
+    this.activatedRoute.fragment.subscribe((data) => {
+      console.log(data);
+    });
   }
 
-  loadSampleProduct() { 
+  loadSampleProduct() {
     this.router.navigate(['/product', 1, 'abc'], { // path parameters
-      queryParams: {page:1, search:'qwer'},        // query parameters
+      queryParams: { page: 1, search: 'qwer' },        // query parameters
       fragment: 'loading'                         // fragment
     });
     // this.router.navigateByUrl('/product/1/abc');
