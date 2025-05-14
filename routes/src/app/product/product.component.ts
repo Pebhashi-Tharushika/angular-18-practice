@@ -28,6 +28,10 @@ export class ProductComponent implements OnInit {
         name: data['name']
       }
     });
+
+    console.log(this.activatedRoute.snapshot.params);
+    console.log(this.activatedRoute.snapshot.queryParams);
+    console.log(this.activatedRoute.snapshot.fragment);
   }
 
   loadSampleProduct() { 
