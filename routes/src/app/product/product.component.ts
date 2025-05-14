@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Params, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -14,14 +14,22 @@ export class ProductComponent implements OnInit {
 
   product!: Product;
 
-  constructor(private activedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.product = {
-      id: this.activedRoute.snapshot.params['id'],
-      name: this.activedRoute.snapshot.params['name']
-    }
+    // this.product = {
+    //   id: this.activatedRoute.snapshot.params['id'],
+    //   name: this.activatedRoute.snapshot.params['name']
+    // }
+
+    this.activatedRoute.params.subscribe((data:Params) => {
+      this.product = {
+        id: data['id'],
+        name: data['name']
+      }
+    });
   }
+  
 }
 
 interface Product {
