@@ -20,7 +20,7 @@
           <a class="nav-link" [routerLink]="['/third']">Third</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/product" routerLinkActive="active"
+          <a class="nav-link" routerLink="/product" [queryParams]="{param1:1,param2:2}" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:false}">Product</a>
         </li>
        
