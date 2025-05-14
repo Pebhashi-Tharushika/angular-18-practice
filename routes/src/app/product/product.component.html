@@ -2,4 +2,4 @@
 
 <p>Id: {{product | json}}</p>
 
-<a [routerLink]="['/product',6,'sample']">Navigate to product</a>
+<a [routerLink]="['/product',6,'sample']" [queryParams]="{page:1, search:'asd'}" [fragment]="'comment'">Navigate to product</a>
