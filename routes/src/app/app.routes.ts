@@ -10,5 +10,5 @@ export const routes: Routes = [
     { path: 'first', component: FirstComponent }, // http://localhost:4200/first
     { path: 'second', component: SecondComponent }, // http://localhost:4200/second
     { path: 'third', component: ThirdComponent }, // http://localhost:4200/third
-    { path: 'product/:id', component: ProductComponent } // http://localhost:4200/product/1
+    { path: 'product/:id/:name', component: ProductComponent } // http://localhost:4200/product/1/abc
 ];

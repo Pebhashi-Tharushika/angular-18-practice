@@ -1,21 +1,29 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [JsonPipe], // import JsonPipe to use in the template
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
 
-  id:number = 0;
+  product!: Product;
 
   constructor(private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // console.log(this.activedRoute.snapshot.params['id']);
-    this.id = this.activedRoute.snapshot.params['id'];
+    this.product = {
+      id: this.activedRoute.snapshot.params['id'],
+      name: this.activedRoute.snapshot.params['name']
+    }
   }
+}
+
+interface Product {
+  id: number;
+  name: string;
 }
