@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuardService } from './services/guards/auth.guard.service';
 import { DeactivateGuardService } from './services/guards/deactivate-guard.service';
 import { FirstResolveService } from './services/resolvers/first-resolve.service';
+import { canMathGuard } from './services/guards/can-math.guard';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
@@ -26,7 +27,11 @@ export const routes: Routes = [
         component: SecondComponent
     }, // http://localhost:4200/second
 
-    { path: 'third', component: ThirdComponent, data: { name: "Kamal", age: 30 } }, // http://localhost:4200/third
+    { path: 'third', 
+        component: ThirdComponent, 
+        canMatch:[canMathGuard],
+        data: { name: "Kamal", age: 30 } 
+    }, // http://localhost:4200/third
 
     {
         path: 'product',
