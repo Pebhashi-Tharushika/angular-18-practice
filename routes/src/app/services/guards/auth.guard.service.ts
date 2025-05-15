@@ -7,21 +7,23 @@ import { Injectable } from "@angular/core";
 })
 export class AuthGuardService implements CanActivate, CanActivateChild {
 
-    constructor(private authService: AuthService,private router:Router ) { }
-    
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-        let isUserLoggedIn = this.authService.isUserLoggedIn();
+    constructor(private authService: AuthService, private router: Router) { }
 
-        if(isUserLoggedIn) {
-            return true;
-        }else{
-            this.router.navigate(['/']); // navigate to home page (root path)
-            return false;
-        } 
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+
+        return this.authService.isUserLoggedIn().then((isLoggedIn) => {
+            if (isLoggedIn) {
+                return true;
+            } else {
+                this.router.navigate(['/']); // navigate to home page (root path)
+                return false;
+            }
+
+        });
     }
 
-    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean>  {
         return this.canActivate(childRoute, state); // same logic as canActivate
     }
-    
+
 }

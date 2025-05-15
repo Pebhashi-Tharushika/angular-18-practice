@@ -18,6 +18,10 @@ export class AuthService {
   }
 
   isUserLoggedIn() {
-    return this.isLoggedIn;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.isLoggedIn);
+      }, 1000); // Simulate async operation with a timeout (Imagine an API call)
+    });
   }
 }
