@@ -1,16 +1,15 @@
-import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from "../auth.service";
 import { Injectable } from "@angular/core";
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanActivateChild {
 
     constructor(private authService: AuthService,private router:Router ) { }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-
         let isUserLoggedIn = this.authService.isUserLoggedIn();
 
         if(isUserLoggedIn) {
@@ -18,8 +17,11 @@ export class AuthGuardService implements CanActivate {
         }else{
             this.router.navigate(['/']); // navigate to home page (root path)
             return false;
-        }
-        
+        } 
+    }
+
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        return this.canActivate(childRoute, state); // same logic as canActivate
     }
     
 }

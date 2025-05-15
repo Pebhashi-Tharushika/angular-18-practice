@@ -24,10 +24,10 @@ export const routes: Routes = [
     {
         path: 'product',
         component: ProductsComponent, // http://localhost:4200/product 
+        canActivateChild: [AuthGuardService], // Apply guard to all child routes
         children: [
             {
                 path: ':id/:name',
-                canActivate: [AuthGuardService],
                 component: ProductComponent
             }
         ] // http://localhost:4200/product/1/abc
