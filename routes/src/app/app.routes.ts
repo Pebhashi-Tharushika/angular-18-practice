@@ -20,7 +20,7 @@ export const routes: Routes = [
         component: SecondComponent
     }, // http://localhost:4200/second
 
-    { path: 'third', component: ThirdComponent }, // http://localhost:4200/third
+    { path: 'third', component: ThirdComponent, data: { name: "Kamal", age: 30 } }, // http://localhost:4200/third
 
     {
         path: 'product',
