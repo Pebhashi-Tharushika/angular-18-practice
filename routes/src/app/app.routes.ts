@@ -7,11 +7,12 @@ import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './services/guards/auth.guard.service';
+import { DeactivateGuardService } from './services/guards/deactivate-guard.service';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
 
-    { path: 'first', component: FirstComponent }, // http://localhost:4200/first
+    { path: 'first', component: FirstComponent, canDeactivate: [DeactivateGuardService] }, // http://localhost:4200/first
 
     {
         path: 'second',
