@@ -5,6 +5,7 @@ import { SecondComponent } from './second/second.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
@@ -14,5 +15,8 @@ export const routes: Routes = [
     {
         path: 'product', component: ProductsComponent, // http://localhost:4200/product 
         children: [{ path: ':id/:name', component: ProductComponent }] // http://localhost:4200/product/1/abc
-    }, 
+    },
+    { path: 'page-not-found', component: PageNotFoundComponent }, // http://localhost:4200/page-not-found
+    { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/otherthing
+
 ];

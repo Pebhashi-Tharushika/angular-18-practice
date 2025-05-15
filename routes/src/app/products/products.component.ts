@@ -15,7 +15,7 @@ export class ProductsComponent {
   onProductClick() {
     this.router.navigate(['/product', 2, 'product2'], {
       queryParams: { param3: 3, param4: 4 },
-      queryParamsHandling: 'preserve'
+      queryParamsHandling: 'merge',
     });
   }
 
