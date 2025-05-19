@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { UserService } from '../services/user.service';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -10,12 +11,14 @@ import { JsonPipe } from '@angular/common';
 })
 export class EditUserComponent {
 
-  userId !: number;
-  
+  userService = inject(UserService);
+
+  user: any;
+
   // setter method to set the id that comes from the route
   @Input() set id(id: string) {
-    console.log(id);
-    this.userId = +id;
+    console.log('set id ', id);
+    this.user = this.userService.getUserById(+id);
   }
 
 }
