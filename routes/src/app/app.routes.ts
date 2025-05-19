@@ -14,6 +14,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { DefaultUserComponent } from './default-user/default-user.component';
 
+const resolveTitle = () => Promise.resolve('Products');
+
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
 
@@ -42,6 +44,7 @@ export const routes: Routes = [
 
     {
         path: 'product',
+        title: resolveTitle,
         component: ProductsComponent, // http://localhost:4200/product 
         canActivateChild: [AuthGuardService], // Apply guard to all child routes
         children: [
