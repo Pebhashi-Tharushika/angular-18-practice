@@ -21,4 +21,8 @@ export class EditUserComponent {
     this.user = this.userService.getUserById(+id);
   }
 
+  @Input() set page(page: string) {
+    console.log('set page child ', page);
+  }
+
 }

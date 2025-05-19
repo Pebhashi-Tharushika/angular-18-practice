@@ -12,6 +12,7 @@ import { FirstResolveService } from './services/resolvers/first-resolve.service'
 import { canMathGuard } from './services/guards/can-math.guard';
 import { UserListComponent } from './user-list/user-list.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { DefaultUserComponent } from './default-user/default-user.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
@@ -53,11 +54,10 @@ export const routes: Routes = [
     {
         path: 'users',
         component: UserListComponent,
+        data: { 'page': 1 },
         children: [
-            {
-                path: 'edit/:id',
-                component: EditUserComponent
-            }
+            {path: '',component: DefaultUserComponent},
+            {path: 'edit/:id',component: EditUserComponent}
         ]
     },
     // {path:'users', component: UserListComponent}, // /users
