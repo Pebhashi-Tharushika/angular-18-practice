@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,9 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ThirdComponent implements OnInit {
 
+  title=inject(Title);
+
   constructor(private activateRoute:ActivatedRoute){}
 
   ngOnInit(): void {
+    // Imagine that we gets the title from the server
+      this.title.setTitle('Third Title');
+
     // first way to get data from route
     console.log(this.activateRoute.snapshot.data);
 

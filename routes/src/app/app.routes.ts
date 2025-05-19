@@ -38,7 +38,7 @@ export const routes: Routes = [
         path: 'third',
         title: 'Third Component',
         component: ThirdComponent,
-        canMatch: [canMathGuard],
+        // canMatch: [canMathGuard],
         data: { name: "Kamal", age: 30 }
     }, // http://localhost:4200/third
 
