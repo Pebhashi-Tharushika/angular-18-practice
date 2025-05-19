@@ -10,6 +10,8 @@ import { AuthGuardService } from './services/guards/auth.guard.service';
 import { DeactivateGuardService } from './services/guards/deactivate-guard.service';
 import { FirstResolveService } from './services/resolvers/first-resolve.service';
 import { canMathGuard } from './services/guards/can-math.guard';
+import { UserListComponent } from './user-list/user-list.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // http://localhost:4200
@@ -46,6 +48,10 @@ export const routes: Routes = [
     },
 
     { path: 'page-not-found', component: PageNotFoundComponent }, // http://localhost:4200/page-not-found
+
+    {path:'users', component: UserListComponent}, // /users
+
+    {path:'users/edit/:id', component: EditUserComponent}, // /users/edit/1
 
     { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/otherthing
 ];
