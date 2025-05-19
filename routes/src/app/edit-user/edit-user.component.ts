@@ -1,27 +1,21 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-edit-user',
   standalone: true,
-  imports: [],
+  imports: [JsonPipe],
   templateUrl: './edit-user.component.html',
   styleUrl: './edit-user.component.css'
 })
-export class EditUserComponent implements OnChanges {
+export class EditUserComponent {
 
-  @Input() id !: number;
-
-  constructor() {
-    // console.log(this.id); //undefined
+  userId !: number;
+  
+  // setter method to set the id that comes from the route
+  @Input() set id(id: string) {
+    console.log(id);
+    this.userId = +id;
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['id']) {
-      console.log(this.id);
-    }
-  }
-
-  // ngOnInit(): void {
-  //   console.log(this.id); // 1
-  // }
 
 }
