@@ -29,10 +29,11 @@ export const routes: Routes = [
         component: SecondComponent
     }, // http://localhost:4200/second
 
-    { path: 'third', 
-        component: ThirdComponent, 
-        canMatch:[canMathGuard],
-        data: { name: "Kamal", age: 30 } 
+    {
+        path: 'third',
+        component: ThirdComponent,
+        canMatch: [canMathGuard],
+        data: { name: "Kamal", age: 30 }
     }, // http://localhost:4200/third
 
     {
@@ -49,9 +50,18 @@ export const routes: Routes = [
 
     { path: 'page-not-found', component: PageNotFoundComponent }, // http://localhost:4200/page-not-found
 
-    {path:'users', component: UserListComponent}, // /users
-
-    {path:'users/edit/:id', component: EditUserComponent}, // /users/edit/1
+    {
+        path: 'users',
+        component: UserListComponent,
+        children: [
+            {
+                path: 'edit/:id',
+                component: EditUserComponent
+            }
+        ]
+    },
+    // {path:'users', component: UserListComponent}, // /users
+    // {path:'users/edit/:id', component: EditUserComponent}, // /users/edit/1
 
     { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/otherthing
 ];
