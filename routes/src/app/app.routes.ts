@@ -19,6 +19,7 @@ export const routes: Routes = [
 
     {
         path: 'first',
+        title: 'First Component',
         component: FirstComponent,
         canDeactivate: [DeactivateGuardService],
         resolve: { data: FirstResolveService }
@@ -26,12 +27,14 @@ export const routes: Routes = [
 
     {
         path: 'second',
+        title: 'Second Component',
         canActivate: [AuthGuardService],
         component: SecondComponent
     }, // http://localhost:4200/second
 
     {
         path: 'third',
+        title: 'Third Component',
         component: ThirdComponent,
         canMatch: [canMathGuard],
         data: { name: "Kamal", age: 30 }
