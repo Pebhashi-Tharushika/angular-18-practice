@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +9,17 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  router = inject(Router);
+
+  activatedRouter = inject(ActivatedRoute)
+
+  // navigateToHomeItems(){
+  //   this.router.navigate(['home/items']);
+  // }
+
+  navigateToHomeItems(){
+    this.router.navigate(['items'], {relativeTo: this.activatedRouter});
+  }
 
 }
