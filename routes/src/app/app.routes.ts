@@ -40,7 +40,8 @@ export const routes: Routes = [
     {
         path: 'third',
         title: 'Third Component',
-        component: ThirdComponent,
+        loadComponent: () => import('./third/third.component').then(m => m.ThirdComponent),
+        // component: ThirdComponent,
         // canMatch: [canMathGuard],
         data: { name: "Kamal", age: 30 }
     }, // http://localhost:4200/third
