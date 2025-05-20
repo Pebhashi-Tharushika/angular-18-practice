@@ -13,11 +13,13 @@ import { canMathGuard } from './services/guards/can-math.guard';
 import { UserListComponent } from './user-list/user-list.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { DefaultUserComponent } from './default-user/default-user.component';
+import { HomeitemsComponent } from './homeitems/homeitems.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const resolveTitle = () => Promise.resolve('Products');
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent }, // http://localhost:4200
+    { path: '', component: DashboardComponent }, // http://localhost:4200
 
     {
         path: 'first',
@@ -62,12 +64,15 @@ export const routes: Routes = [
         component: UserListComponent,
         data: { 'page': 1 },
         children: [
-            {path: '',component: DefaultUserComponent},
-            {path: 'edit/:id',component: EditUserComponent}
+            { path: '', component: DefaultUserComponent },
+            { path: 'edit/:id', component: EditUserComponent }
         ]
     },
     // {path:'users', component: UserListComponent}, // /users
     // {path:'users/edit/:id', component: EditUserComponent}, // /users/edit/1
+
+    { path: 'home', component: HomeComponent },
+    { path: 'home/items', component: HomeitemsComponent },
 
     { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/otherthing
 ];
