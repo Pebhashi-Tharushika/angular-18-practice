@@ -15,6 +15,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { DefaultUserComponent } from './default-user/default-user.component';
 import { HomeitemsComponent } from './homeitems/homeitems.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ErrorHandler, inject } from '@angular/core';
 
 const resolveTitle = () => Promise.resolve('Products');
 
@@ -74,5 +75,24 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'home/items', component: HomeitemsComponent },
 
-    { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/otherthing
+    // {path:'old-user-page', redirectTo: 'users', pathMatch:'full'}, // http://localhost:4200/old-user-page
+    // {
+    //     path: 'old-user-page', redirectTo: ({queryParams}) => {
+    //         console.log(queryParams);
+    //         return '/users';
+    //     }, pathMatch: 'full'
+    // },
+    {
+        path: 'old-user-page', redirectTo: ({queryParams}) => {
+            const errorHandler = inject(ErrorHandler);
+            const userId = queryParams['id'];
+            if(userId!== undefined){
+                return `/users/edit/${userId}`;
+            }
+            errorHandler.handleError(new Error('User ID is missing'));
+            return '/users';
+        }, pathMatch: 'full'
+    },
+
+    { path: '**', redirectTo: 'page-not-found' } // http://localhost:4200/anything
 ];
