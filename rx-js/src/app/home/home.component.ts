@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Observable, Subscription } from 'rxjs';
+import { interval, map, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +34,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     
-    this.intervalSubscription = customObservable.subscribe({
+    // this.intervalSubscription = customObservable.subscribe({
+    //   next: data => {
+    //     console.log(data);
+    //   },
+    //   error: error => {
+    //     console.log(error);
+    //   },
+    //   complete: () => {
+    //     console.log('Completed!');
+    //   }
+    // });
+  
+    this.intervalSubscription = customObservable.pipe(map(data => {
+      return 'Value emitted: ' + data;
+    })).subscribe({
       next: data => {
         console.log(data);
       },
