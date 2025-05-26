@@ -47,9 +47,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     // });
 
     this.intervalSubscription = customObservable.pipe(
-      filter(data => data > 0), map(data => {
-        return 'Value emitted: ' + data;
-      })).subscribe({
+      filter(data => data > 0), 
+      map(data => 'Value emitted: ' + data))
+      .subscribe({
         next: data => {
           console.log(data);
         },
