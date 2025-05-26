@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, map, Observable, Subscription } from 'rxjs';
+import { filter, interval, map, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,26 +14,26 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    let customObservable = new Observable(observer => {
+    let customObservable = new Observable<number>(observer => {
       let count = 0;
       setInterval(() => {
         observer.next(count); // Emit value to observers
 
         if (count === 3) {
           observer.complete();       // No more values after this
-          observer.next('end');        // This will NOT be emitted
+          observer.next(-1);        // This will NOT be emitted
         }
 
         if (count > 5) {
           observer.error('Count is greater than 5');
         }
-        
+
         count++;
       }, 1000);
 
     });
 
-    
+
     // this.intervalSubscription = customObservable.subscribe({
     //   next: data => {
     //     console.log(data);
@@ -45,20 +45,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     //     console.log('Completed!');
     //   }
     // });
-  
-    this.intervalSubscription = customObservable.pipe(map(data => {
-      return 'Value emitted: ' + data;
-    })).subscribe({
-      next: data => {
-        console.log(data);
-      },
-      error: error => {
-        console.log(error);
-      },
-      complete: () => {
-        console.log('Completed!');
-      }
-    });
+
+    this.intervalSubscription = customObservable.pipe(
+      filter(data => data > 0), map(data => {
+        return 'Value emitted: ' + data;
+      })).subscribe({
+        next: data => {
+          console.log(data);
+        },
+        error: error => {
+          console.log(error);
+        },
+        complete: () => {
+          console.log('Completed!');
+        }
+      });
   }
 
   ngOnDestroy(): void {
