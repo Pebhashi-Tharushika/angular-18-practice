@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   userService = inject(UserService);
 
   ngOnInit(): void {
-    this.userService.userAddedEvent.subscribe((isAdded: boolean) => {
+    this.userService.userAddedSubject.subscribe((isAdded: boolean) => {
       this.isUserAdded = isAdded;
     });
   }
