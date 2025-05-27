@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, Injector, runInInjectionContext, signal } from '@angular/core';
 
 @Component({
   selector: 'app-effects',
@@ -11,13 +11,29 @@ export class EffectsComponent {
 
   count = signal(0);
 
-  constructor() {
-    // listen to a signal
-    effect(() => {
-      console.log('effect executed');
-      // console.log('Effect triggered: count changed to', this.count());
-      this.count.set(this.count() + 1);
+  // loggingEffect = effect(() => {
+  //   console.log('count changed to', this.count());
+  // });
+
+  // constructor() {
+  //   // listen to a signal
+  //   effect(() => {
+  //     // console.log('effect executed');
+  //     console.log('count changed to', this.count());
+  //     // this.count.set(this.count() + 1);
+  //   });
+  // }
+
+  constructor(private injector: Injector) {}
+  
+
+  initializeLoggingEffect() {
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        console.log('count changed to', this.count());
+      });
     });
+    
   }
 
   updatecount() {
