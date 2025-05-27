@@ -9,10 +9,17 @@ import { Component, computed, Signal, signal, WritableSignal } from '@angular/co
 })
 export class CounterComponent {
   // Using WritableSignal to allow both reading and writing
-  counter : WritableSignal<number> = signal(0);
+  counter: WritableSignal<number> = signal(0);
+
+  numbers: WritableSignal<number[]> = signal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+  oddNumbers: Signal<number[]> = computed(() => {
+    console.log('Computed Odd Numbers');
+    return this.numbers().filter(num => num % 2 !== 0)
+  });
 
   // Using Signal to allow reading only
-  doubleCounter : Signal<number> = computed(()=>{
+  doubleCounter: Signal<number> = computed(() => {
     console.log('Computed Signal');
     return this.counter() * 2;
   });
@@ -31,7 +38,15 @@ export class CounterComponent {
     this.counter.update(value => value - 1);
   }
 
-  logDoubleCounterValue(){
+  logDoubleCounterValue() {
     console.log('Double Counter Value:', this.doubleCounter());
+  }
+
+  logOddNumbers() {
+    console.log('Odd Numbers:', this.oddNumbers());
+  }
+
+  updateNumbers() {
+    this.numbers.update(nums => nums.map(num => num * 3));
   }
 }
