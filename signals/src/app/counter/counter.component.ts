@@ -1,4 +1,4 @@
-import { Component, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, Signal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -12,7 +12,7 @@ export class CounterComponent {
   counter : WritableSignal<number> = signal(0);
 
   // Using Signal to allow reading only
-  counterDouble : Signal<number> = signal(0);
+  counterDouble : Signal<number> = computed(()=>this.counter() * 2);
 
   setValue() {
     this.counter.set(10);
