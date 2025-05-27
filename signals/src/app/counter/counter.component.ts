@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, Signal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -8,14 +8,20 @@ import { Component, signal, WritableSignal } from '@angular/core';
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
+  // Using WritableSignal to allow both reading and writing
   counter : WritableSignal<number> = signal(0);
+
+  // Using Signal to allow reading only
+  counterDouble : Signal<number> = signal(0);
 
   setValue() {
     this.counter.set(10);
+    // this.counterDouble.set(this.counter() * 2); //error: Signal is read-only
   }
 
   incrementValue() {
     this.counter.update(value => value + 1);
+    // this.counterDouble.update(this.counter() * 2); // error: Signal is read-only
   }
 
   decrementValue() {
