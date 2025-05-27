@@ -30,4 +30,8 @@ export class CounterComponent {
   decrementValue() {
     this.counter.update(value => value - 1);
   }
+
+  logDoubleCounterValue(){
+    console.log('Double Counter Value:', this.doubleCounter());
+  }
 }
