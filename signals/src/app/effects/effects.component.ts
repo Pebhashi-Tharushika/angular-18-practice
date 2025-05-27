@@ -1,4 +1,4 @@
-import { Component, effect, Injector, runInInjectionContext, signal } from '@angular/core';
+import { Component, effect, Injector, OnDestroy, runInInjectionContext, signal } from '@angular/core';
 
 @Component({
   selector: 'app-effects',
@@ -7,9 +7,13 @@ import { Component, effect, Injector, runInInjectionContext, signal } from '@ang
   templateUrl: './effects.component.html',
   styleUrl: './effects.component.css'
 })
-export class EffectsComponent {
+export class EffectsComponent implements OnDestroy {
 
   count = signal(0);
+
+  private loggingEffect = effect(() => {
+    console.log('count changed to', this.count());
+  },{manualCleanup: true});
 
   // loggingEffect = effect(() => {
   //   console.log('count changed to', this.count());
@@ -24,23 +28,27 @@ export class EffectsComponent {
   //   });
   // }
 
-  constructor(private injector: Injector) { }
+  // constructor(private injector: Injector) { }
+  
 
+  // initializeLoggingEffect() {
+  //   // runInInjectionContext(this.injector, () => {
+  //   //   effect(() => {
+  //   //     console.log('count changed to', this.count());
+  //   //   });
+  //   // });
 
-  initializeLoggingEffect() {
-    // runInInjectionContext(this.injector, () => {
-    //   effect(() => {
-    //     console.log('count changed to', this.count());
-    //   });
-    // });
+  //   effect(() => {
+  //     console.log('count changed to', this.count());
+  //   }, { injector: this.injector });
+  // }
 
-    effect(() => {
-      console.log('count changed to', this.count());
-    }, { injector: this.injector });
-  }
+  // updatecount() {
+  //   this.count.update(value => value + 1);
+  // }
 
-  updatecount() {
-    this.count.update(value => value + 1);
+  ngOnDestroy(): void {
+    this.loggingEffect.destroy();
   }
 
 }
