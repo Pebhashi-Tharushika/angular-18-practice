@@ -17,8 +17,8 @@ export class EffectsComponent {
     effect(() => {
       // console.log('Effect triggered: count changed to', this.count());
       // this.a.set(2);
-      // this.a.set(this.count() * 2);
-    });
+      this.a.set(this.count() * 2);
+    },{allowSignalWrites: true});
   }
 
   updatecount() {
