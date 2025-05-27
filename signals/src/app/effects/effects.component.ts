@@ -11,13 +11,12 @@ export class EffectsComponent {
 
   count = signal(0);
 
-  a = signal(0);
-
   constructor() {
+    // listen to a signal
     effect(() => {
-      console.log('Effect triggered: count changed to', this.count());
-      // this.a.set(2);
-      // this.a.set(this.count() * 2);
+      console.log('effect executed');
+      // console.log('Effect triggered: count changed to', this.count());
+      this.count.set(this.count() + 1);
     });
   }
 
