@@ -11,18 +11,29 @@ export class CounterComponent {
   // Using WritableSignal to allow both reading and writing
   counter: WritableSignal<number> = signal(0);
 
-  numbers: WritableSignal<number[]> = signal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  showCount: WritableSignal<boolean> = signal(false);
 
-  oddNumbers: Signal<number[]> = computed(() => {
-    console.log('Computed Odd Numbers');
-    return this.numbers().filter(num => num % 2 !== 0)
+  conditionalCount = computed(() => {
+    console.log('Computed Conditional Count');
+    if(this.showCount()) {
+      return `The counter value is ${this.counter()}`;
+    }else{
+      return 'Nothing to show';
+    }
   });
+
+  // numbers: WritableSignal<number[]> = signal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+  // oddNumbers: Signal<number[]> = computed(() => {
+  //   console.log('Computed Odd Numbers');
+  //   return this.numbers().filter(num => num % 2 !== 0)
+  // });
 
   // Using Signal to allow reading only
-  doubleCounter: Signal<number> = computed(() => {
-    console.log('Computed Signal');
-    return this.counter() * 2;
-  });
+  // doubleCounter: Signal<number> = computed(() => {
+  //   console.log('Computed Signal');
+  //   return this.counter() * 2;
+  // });
 
   setValue() {
     this.counter.set(10);
@@ -38,15 +49,23 @@ export class CounterComponent {
     this.counter.update(value => value - 1);
   }
 
-  logDoubleCounterValue() {
-    console.log('Double Counter Value:', this.doubleCounter());
+  getConditionalCount(){
+    console.log(this.conditionalCount());
   }
 
-  logOddNumbers() {
-    console.log('Odd Numbers:', this.oddNumbers());
+  updateShowCount(){
+    this.showCount.update(value => !value);
   }
 
-  updateNumbers() {
-    this.numbers.update(nums => nums.map(num => num * 3));
-  }
+  // logDoubleCounterValue() {
+  //   console.log('Double Counter Value:', this.doubleCounter());
+  // }
+
+  // logOddNumbers() {
+  //   console.log('Odd Numbers:', this.oddNumbers());
+  // }
+
+  // updateNumbers() {
+  //   this.numbers.update(nums => nums.map(num => num * 3));
+  // }
 }
