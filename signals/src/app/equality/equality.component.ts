@@ -1,4 +1,5 @@
 import { Component, effect, signal } from '@angular/core';
+import { isEqual } from 'lodash';
 
 @Component({
   selector: 'app-equality',
@@ -9,8 +10,12 @@ import { Component, effect, signal } from '@angular/core';
 })
 export class EqualityComponent {
 
+  // data = signal({ name: 'John', age: 30 },{
+  //   equal: (a, b) => a.name === b.name && a.age === b.age
+  // });
+
   data = signal({ name: 'John', age: 30 },{
-    equal: (a, b) => a.name === b.name && a.age === b.age
+    equal: isEqual
   });
 
   constructor() {
