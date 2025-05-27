@@ -1,18 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CounterComponent } from './counter/counter.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
+  imports: [CounterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'signals';
-
-  counter = signal(0);
-
-  setValue(){
-    this.counter.set(10);
-  }
 }
