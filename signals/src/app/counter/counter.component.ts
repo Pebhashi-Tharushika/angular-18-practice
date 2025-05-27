@@ -12,16 +12,19 @@ export class CounterComponent {
   counter : WritableSignal<number> = signal(0);
 
   // Using Signal to allow reading only
-  counterDouble : Signal<number> = computed(()=>this.counter() * 2);
+  doubleCounter : Signal<number> = computed(()=>{
+    console.log('Computed Signal');
+    return this.counter() * 2;
+  });
 
   setValue() {
     this.counter.set(10);
-    // this.counterDouble.set(this.counter() * 2); //error: Signal is read-only
+    // this.doubleCounter.set(this.counter() * 2); //error: Signal is read-only
   }
 
   incrementValue() {
     this.counter.update(value => value + 1);
-    // this.counterDouble.update(this.counter() * 2); // error: Signal is read-only
+    // this.doubleCounter.update(this.counter() * 2); // error: Signal is read-only
   }
 
   decrementValue() {
