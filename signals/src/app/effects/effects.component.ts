@@ -24,16 +24,19 @@ export class EffectsComponent {
   //   });
   // }
 
-  constructor(private injector: Injector) {}
-  
+  constructor(private injector: Injector) { }
+
 
   initializeLoggingEffect() {
-    runInInjectionContext(this.injector, () => {
-      effect(() => {
-        console.log('count changed to', this.count());
-      });
-    });
-    
+    // runInInjectionContext(this.injector, () => {
+    //   effect(() => {
+    //     console.log('count changed to', this.count());
+    //   });
+    // });
+
+    effect(() => {
+      console.log('count changed to', this.count());
+    }, { injector: this.injector });
   }
 
   updatecount() {
