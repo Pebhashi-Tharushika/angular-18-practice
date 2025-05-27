@@ -15,10 +15,10 @@ export class EffectsComponent {
 
   constructor() {
     effect(() => {
-      // console.log('Effect triggered: count changed to', this.count());
+      console.log('Effect triggered: count changed to', this.count());
       // this.a.set(2);
-      this.a.set(this.count() * 2);
-    },{allowSignalWrites: true});
+      // this.a.set(this.count() * 2);
+    });
   }
 
   updatecount() {
