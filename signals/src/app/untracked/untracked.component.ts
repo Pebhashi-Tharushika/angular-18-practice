@@ -13,9 +13,15 @@ export class UntrackedComponent implements OnInit {
   name = signal('Angular');
 
   constructor() {
+    // effect(() => {
+    //   console.log(`hello ${untracked(this.name)}. count is ${untracked(this.count)}`);
+    // });
+    
     effect(() => {
-      console.log(`hello ${this.name()}. count is ${untracked(this.count)}`);
-    })
+      untracked(()=>{
+        console.log(`hello ${this.name()}. count is ${this.count()}`);
+      });
+    });
   }
 
   ngOnInit(): void {
