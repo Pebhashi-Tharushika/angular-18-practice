@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, effect, input } from '@angular/core';
 
 @Component({
   selector: 'app-signal-inputs',
@@ -11,6 +11,14 @@ export class SignalInputsComponent {
 
   firstName = input.required<string>();  // required signal input
   lastName = input<string>();            // optional signal input
-  age = input(0,{alias:'agevalue'});     // optional signal input with default value
+  age = input(0, { alias: 'agevalue' });     // optional signal input with default value
+
+  ageMultiplied = computed(() => this.age() * 5);
+
+  constructor(){
+    effect(()=> {
+      console.log(this.firstName());
+    })
+  }
 
 }
