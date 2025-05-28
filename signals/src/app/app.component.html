@@ -1,6 +1,12 @@
 <h1>Signal example</h1>
 
-<app-untracked></app-untracked>
+@if(showCleanupComponent()){
+    <app-cleanup></app-cleanup>
+}
+
+<button (click)="toggleCleanupComponent()">Toggle</button>
+
+<!-- <app-untracked></app-untracked> -->
 
 <!-- <app-equality></app-equality> -->
 
