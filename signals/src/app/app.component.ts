@@ -4,20 +4,21 @@ import { EffectsComponent } from './effects/effects.component';
 import { EqualityComponent } from './equality/equality.component';
 import { UntrackedComponent } from './untracked/untracked.component';
 import { CleanupComponent } from './cleanup/cleanup.component';
+import { RxjsInteropComponent } from './rxjs-interop/rxjs-interop.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent, CleanupComponent],
+  imports: [CounterComponent, EffectsComponent, EqualityComponent, UntrackedComponent, CleanupComponent, RxjsInteropComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'signals';
 
-  showCleanupComponent = signal(false);
+  // showCleanupComponent = signal(false);
 
-  toggleCleanupComponent() {
-    this.showCleanupComponent.set(!this.showCleanupComponent());
-  }
+  // toggleCleanupComponent() {
+  //   this.showCleanupComponent.set(!this.showCleanupComponent());
+  // }
 }
