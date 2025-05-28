@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { interval, Subscription } from 'rxjs';
+import { Observable, Subscription, throwError} from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-interop',
@@ -12,19 +12,31 @@ import { interval, Subscription } from 'rxjs';
 })
 export class RxjsInteropComponent implements OnInit, OnDestroy {
 
-  private subsription !: Subscription;
+  errorMessage: string = '';
 
-  counterObservable = interval(1000);
+  observable = throwError(()=> new Error('An Error Occured'));
 
-  counterSignal = toSignal(this.counterObservable, { initialValue: 0, manualCleanup: true });
+  errorSignal = toSignal(this.observable);
+
+  // private subscription !: Subscription;
+
+  // counterObservable = interval(1000);
+
+  // counterSignal = toSignal(this.counterObservable, { initialValue: 0, manualCleanup: true });
 
   ngOnInit(): void {
-    this.subsription = this.counterObservable.subscribe();
+    
+    try {
+      this.errorSignal();
+    } catch (e: any) {
+      this.errorMessage = e.message;
+    }
+    // this.subscription = this.counterObservable.subscribe();
   }
   ngOnDestroy(): void {
-    if (this.subsription) {
-      this.subsription.unsubscribe();
-    }
+    // if (this.subscription) {
+    //   this.subscription.unsubscribe();
+    // }
   }
 
 }
