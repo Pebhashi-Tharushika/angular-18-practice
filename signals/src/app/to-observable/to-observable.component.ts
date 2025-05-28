@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { QueryService } from '../services/query.service';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { of, switchMap } from 'rxjs';
@@ -11,7 +11,7 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './to-observable.component.html',
   styleUrl: './to-observable.component.css'
 })
-export class ToObservableComponent {
+export class ToObservableComponent implements OnInit {
 
   query = inject(QueryService).query;
 
@@ -22,5 +22,18 @@ export class ToObservableComponent {
   onQueryChange(event:Event){
     this.query.set((event.target as HTMLInputElement).value);
   }
+
+  ngOnInit(): void {
+    this.query.set("a");
+    this.query.set("b");
+    this.query.set("c");
+
+    this.query$.subscribe(value => console.log(value));
+    this.results$.subscribe(value => console.log(value));
+
+    this.query$.subscribe(value => console.log(typeof(value))); // string
+    this.results$.subscribe(value => console.log(typeof(value))); // string
+  }
+
 
 }
