@@ -10,19 +10,19 @@ import { interval, Subscription } from 'rxjs';
   templateUrl: './rxjs-interop.component.html',
   styleUrl: './rxjs-interop.component.css'
 })
-export class RxjsInteropComponent implements OnInit, OnDestroy{
-  
+export class RxjsInteropComponent implements OnInit, OnDestroy {
+
   private subsription !: Subscription;
 
   counterObservable = interval(1000);
 
-  counterSignal = toSignal(this.counterObservable,{initialValue:0,manualCleanup: true});
+  counterSignal = toSignal(this.counterObservable, { initialValue: 0, manualCleanup: true });
 
-  ngOnDestroy(): void {
+  ngOnInit(): void {
     this.subsription = this.counterObservable.subscribe();
   }
-  ngOnInit(): void {
-    if(this.subsription) {
+  ngOnDestroy(): void {
+    if (this.subsription) {
       this.subsription.unsubscribe();
     }
   }
