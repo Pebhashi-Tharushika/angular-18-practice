@@ -17,7 +17,7 @@ export class ContentQueriesComponent {
   h2 = contentChildren<ElementRef>('h2');
 
   // `widget` is a signal that holds a reference to a projected another child component from the parent template.
-  widget = contentChild(WidgetComponent);
+  widget = contentChild(WidgetComponent, { read: ElementRef });
 
   constructor() {
     effect(() => {
