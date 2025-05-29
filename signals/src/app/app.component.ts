@@ -21,10 +21,10 @@ export class AppComponent {
 
   parentChecked = true;
 
-  handleCheckChange(value: boolean) {
-    console.log("parent handle checked change", value);
-    this.parentChecked = value;
-  }
+  // handleCheckChange(value: boolean) {
+  //   console.log("parent handle checked change", value);
+  //   this.parentChecked = value;
+  // }
 
   // showCleanupComponent = signal(false);
 

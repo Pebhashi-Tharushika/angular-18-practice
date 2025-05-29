@@ -2,9 +2,11 @@
 
 <h1>Parent checked: {{parentChecked}}</h1>
 
-<app-model-inputs 
+<app-model-inputs [(checked)]="parentChecked"></app-model-inputs>
+
+<!-- <app-model-inputs 
 [checked]="parentChecked"
-(checkedChange)="handleCheckChange($event)"></app-model-inputs>
+(checkedChange)="handleCheckChange($event)"></app-model-inputs> -->
 
 <!-- <app-signal-inputs [sample]="true"></app-signal-inputs>  --> <!-- true -->
 
