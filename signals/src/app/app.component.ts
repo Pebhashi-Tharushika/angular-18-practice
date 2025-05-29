@@ -21,16 +21,21 @@ import { ViewQueriesComponent } from './view-queries/view-queries.component';
 export class AppComponent {
   title = 'signals';
 
-  
-  cmp = viewChild(ViewQueriesComponent);// `cmp` is a Signal (Signal<ViewQueriesComponent | undefined>) that holds a reference to a child component
 
-  // el = viewChild('el'); // `el` is a Signal that holds a reference to an element in the own template 
+  // `cmp` is a Signal that holds a reference to a child component
+  cmp = viewChild(ViewQueriesComponent);
 
-  el = viewChildren('el'); // `el` is a Signal that holds a reference to an element in the own template 
+  // `el1` is a Signal that holds a reference to an element in the own template
+  el1 = viewChild('el1');
+
+  // `el2` is a Signal that holds references to elements in the own template
+  el2 = viewChildren('el2');
 
   constructor() {
     effect(() => {
-      console.log("cmp: ",this.cmp(), " el: ", this.el());
+      console.log("cmp: ", this.cmp());
+      console.log("el1: ", this.el1());
+      console.log("el2: ", this.el2());
     });
   }
 
