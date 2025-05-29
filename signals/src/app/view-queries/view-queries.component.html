@@ -1,1 +1,10 @@
 <p>view-queries works!</p>
+
+<h1 #requiredElement>This is required</h1>
+
+@if (showOptionalElement()) {
+    <div #optionalElement>This is optional element</div>
+}
+
+<button (click)="toggle()">Toggle</button>
+

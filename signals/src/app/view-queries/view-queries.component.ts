@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect, signal, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-view-queries',
@@ -10,5 +10,22 @@ import { Component } from '@angular/core';
 export class ViewQueriesComponent {
 
   age = 35;
+
+  requiredElement = viewChild.required('requiredElement');
+
+  optionalElement = viewChild('optionalElement');
+
+  showOptionalElement = signal(false);
+
+  constructor() {
+    effect(() => {
+      console.log(this.requiredElement());
+      console.log(this.optionalElement());
+    });
+  }
+
+  toggle() {
+    this.showOptionalElement.update(value => !value);
+  }
 
 }
