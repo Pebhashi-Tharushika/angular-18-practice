@@ -1,4 +1,4 @@
-import { Component, effect, signal, viewChild, viewChildren } from '@angular/core';
+import { Component, effect, ElementRef, signal, viewChild, viewChildren } from '@angular/core';
 import { CounterComponent } from './counter/counter.component';
 import { EffectsComponent } from './effects/effects.component';
 import { EqualityComponent } from './equality/equality.component';
@@ -23,7 +23,7 @@ export class AppComponent {
 
 
   // `cmp` is a Signal that holds a reference to a child component
-  cmp = viewChild(ViewQueriesComponent);
+  cmp = viewChild(ViewQueriesComponent, { read: ElementRef });
 
   // `el1` is a Signal that holds a reference to an element in the own template
   el1 = viewChild('el1');
