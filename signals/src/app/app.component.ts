@@ -1,4 +1,4 @@
-import { Component, effect, signal, viewChild } from '@angular/core';
+import { Component, effect, signal, viewChild, viewChildren } from '@angular/core';
 import { CounterComponent } from './counter/counter.component';
 import { EffectsComponent } from './effects/effects.component';
 import { EqualityComponent } from './equality/equality.component';
@@ -21,9 +21,12 @@ import { ViewQueriesComponent } from './view-queries/view-queries.component';
 export class AppComponent {
   title = 'signals';
 
-  // `cmp` is a Signal (Signal<ViewQueriesComponent | undefined>) that holds a reference to a child component
-  cmp = viewChild(ViewQueriesComponent);
-  el = viewChild('el'); // `el` is a Signal that holds a reference to an element in the own template 
+  
+  cmp = viewChild(ViewQueriesComponent);// `cmp` is a Signal (Signal<ViewQueriesComponent | undefined>) that holds a reference to a child component
+
+  // el = viewChild('el'); // `el` is a Signal that holds a reference to an element in the own template 
+
+  el = viewChildren('el'); // `el` is a Signal that holds a reference to an element in the own template 
 
   constructor() {
     effect(() => {
