@@ -1,6 +1,12 @@
 <h1>Signal example</h1>
 
-<app-signal-inputs [sample]="true"></app-signal-inputs> <!-- true -->
+<h1>Parent checked: {{parentChecked}}</h1>
+
+<app-model-inputs 
+[checked]="parentChecked"
+(checkedChange)="handleCheckChange($event)"></app-model-inputs>
+
+<!-- <app-signal-inputs [sample]="true"></app-signal-inputs>  --> <!-- true -->
 
 <!-- <app-signal-inputs [firstName]="'Kamal'" [lastName]="'Gamage'" [agevalue]="25"></app-signal-inputs> -->
 
