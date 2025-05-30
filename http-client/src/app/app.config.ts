@@ -4,12 +4,12 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loggingInterceptor } from './interceptors/logging.interceptor';
 import { customHeaderInnterceptor } from './interceptors/custom-header.interceptor';
+import { responseLoggingInterceptor } from './interceptors/response-logging.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    // provideHttpClient(withInterceptors([loggingInterceptor, customHeaderInnterceptor]))
-    provideHttpClient(withInterceptors([customHeaderInnterceptor, loggingInterceptor]))
+    provideHttpClient(withInterceptors([customHeaderInnterceptor, loggingInterceptor, responseLoggingInterceptor]))
   ]
 };
