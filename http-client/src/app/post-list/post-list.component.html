@@ -1,0 +1,7 @@
+<h1>Posts</h1>
+
+<ol>
+    @for (post of posts$ | async; track post.id) {
+    <li>{{post.title}}</li>
+    }
+</ol>
