@@ -5,7 +5,11 @@
         <pre>{{jsonData | json}}</pre>
         <button type="button" class="btn btn-secondary w-25" (click)="getTextData()">Fetch Text Data</button>
         <p>{{textData}}</p>
-        <button type="button" class="btn btn-success w-25">Fetch Image Data</button>
+        <button type="button" class="btn btn-success w-25" (click)="getImageData()">Fetch Image Data</button>
+        @if(imageData){
+        <p>{{imageData.byteLength}}</p>
+        <img [src]="imageSrc" alt="img">
+        }
     </div>
 
 </div>

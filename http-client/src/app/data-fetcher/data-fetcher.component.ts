@@ -17,6 +17,10 @@ export class DataFetcherComponent {
 
   textData: any;
 
+  imageData: any;
+
+  imageSrc: string | null = null;
+
   getJsonData() {
     this.httpClient.get("https://jsonplaceholder.typicode.com/users/1").subscribe(data => {
       console.log(data)
@@ -30,5 +34,18 @@ export class DataFetcherComponent {
       this.textData = data;
     });
   }
+
+  getImageData() {
+    this.httpClient.get('sample.jpeg', { responseType: 'arraybuffer' }).subscribe(data => {
+      this.imageData = data;
+      const blob = new Blob([data], { type: 'image/jpeg' });
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        this.imageSrc = event.target?.result as string;
+      };
+      reader.readAsDataURL(blob);
+    });
+  }
+
 
 }
