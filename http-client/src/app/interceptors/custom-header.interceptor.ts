@@ -5,13 +5,15 @@ import { inject } from "@angular/core";
 import { AuthService } from "../services/auth.service";
 
 export const customHeaderInnterceptor: HttpInterceptorFn = (req, next) => {
+    console.log("Custom Header Interceptor: ", req.url);
+
     const authService = inject(AuthService);
     const authToken = authService.getAuthToken;
     const modifiedRequest = req.clone({
-        setHeaders: {
-            'custom-header-1': 'custom-header-value-1',
-            'custom-header-2': 'custom-header-value-2'
-        },
+        // setHeaders: {
+        //     'custom-header-1': 'custom-header-value-1',
+        //     'custom-header-2': 'custom-header-value-2'
+        // },
         headers: req.headers.set('custom-header', 'custom-header-value').set('Authorization', `Bearer ${authToken}`)
     });
     return next(modifiedRequest);
