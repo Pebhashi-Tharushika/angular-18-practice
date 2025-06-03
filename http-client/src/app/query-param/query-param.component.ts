@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { CustomHttpQueryParameterCodecService } from '../services/custom-http-query-parameter-codec.service';
 
@@ -16,23 +16,25 @@ export class QueryParamComponent implements OnInit {
   ngOnInit(): void {
 
     // let params = { userId: '1', id: '1' };
-
-    // this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params: params }).subscribe(data => {
+    // let headers = { 'x-custom-header': 'my-custom-header' };
+    // this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params: params, headers: headers }).subscribe(data => {
     //   console.log(data);
     // });
 
     const httpParams = new HttpParams({ encoder: new CustomHttpQueryParameterCodecService() });
     let params = httpParams.set('user Id', '1').set('id', '1 5');
 
-    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params }).subscribe(data => {
+    const httpHeaders = new HttpHeaders();
+    let headers = httpHeaders.set('x-custom-header', 'my-custom-header');
+    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params, headers }).subscribe(data => {
       console.log(data);
     });
 
-    this.decodeExample();
+    // this.decodeExample();
 
   }
 
-  decodeExample(){
+  decodeExample() {
     const encodedKey = 'user+Id';
     const encodedValue = '1+5';
     let CustomHttpQueryParameterCodec = new CustomHttpQueryParameterCodecService();
