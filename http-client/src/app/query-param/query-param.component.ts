@@ -17,7 +17,7 @@ export class QueryParamComponent implements OnInit {
 
     // let params = { userId: '1', id: '1' };
     // let headers = { 'x-custom-header': 'my-custom-header' };
-    // this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params: params, headers: headers }).subscribe(data => {
+    // this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params: params, headers: headers, observe:'response'}).subscribe(data => {
     //   console.log(data);
     // });
 
@@ -26,7 +26,7 @@ export class QueryParamComponent implements OnInit {
 
     const httpHeaders = new HttpHeaders();
     let headers = httpHeaders.set('x-custom-header', 'my-custom-header');
-    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params, headers }).subscribe(data => {
+    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params, headers, observe: 'response' }).subscribe(data => {
       console.log(data);
     });
 
