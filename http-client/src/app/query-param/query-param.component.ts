@@ -28,5 +28,17 @@ export class QueryParamComponent implements OnInit {
       console.log(data);
     });
 
+    this.decodeExample();
+
+  }
+
+  decodeExample(){
+    const encodedKey = 'user+Id';
+    const encodedValue = '1+5';
+    let CustomHttpQueryParameterCodec = new CustomHttpQueryParameterCodecService();
+    const decodedKey = CustomHttpQueryParameterCodec.decodeKey(encodedKey);
+    const decodedValue = CustomHttpQueryParameterCodec.decodeValue(encodedValue);
+    console.log('Decoded Key:', decodedKey); // Output: user Id
+    console.log('Decoded Value:', decodedValue); // Output: 1 5
   }
 }
