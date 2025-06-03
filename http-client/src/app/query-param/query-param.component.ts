@@ -21,8 +21,9 @@ export class QueryParamComponent implements OnInit {
     // });
 
     const httpParams = new HttpParams();
-    httpParams.set('userId', '1').set('id', '1');
-    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params: httpParams }).subscribe(data => {
+    let params = httpParams.set('userId', '1').set('id', '1');
+    
+    this.httpClient.get('https://jsonplaceholder.typicode.com/posts', { params }).subscribe(data => {
       console.log(data);
     });
 
